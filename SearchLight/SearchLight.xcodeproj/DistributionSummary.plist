@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SearchLight</key>
+	<array>
+		<dict>
+			<key>architectures</key>
+			<array>
+				<string>x86_64</string>
+			</array>
+			<key>certificate</key>
+			<dict>
+				<key>SHA1</key>
+				<string>B5BA5B1C044959430DD7E33EFEBC73A0D9C79416</string>
+				<key>dateExpires</key>
+				<string>08/09/2018</string>
+				<key>type</key>
+				<string>Developer ID Application</string>
+			</dict>
+			<key>name</key>
+			<string>SearchLight.app</string>
+			<key>team</key>
+			<dict>
+				<key>id</key>
+				<string>9V5A8WE85E</string>
+				<key>name</key>
+				<string>John Holdsworth</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

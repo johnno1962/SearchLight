@@ -1,0 +1,39 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="Styles.css">
+</head><body><div style='padding: 50px;'>
+<img src='folder_blue_explorer.png'>
+<h3>Welcome to SearchLight!</h3>
+Basic patterns can be entered into the first search field then press enter or the "Search" button to find files  that contain that string. Matches can be displayed with 0 to 5 lines of surrounding context. The second search field filters by the file name (or email subject.) Select a time range using the adjacent popup.<p>
+
+Emails are displayed first in reverse chronological order followed by files in alphabetical order of the filename.. The blue folder icon at the top left is a button that can be pressed to select the directory inside which searches are to be performed. This path is displayed as a toolTip on the button.<p>
+
+A basic query language is implemented using the operators " ," (or), " +" (and) and " -" (not, listed in reverse order of precedence.) Brackets can be used in filters to alter precedence but the preview of lines that match is not implemented in this case. You can also use "*" in a pattern at the beginning or end of a word.<p>
+
+As an example, the following query: "Adam Smith -(caltech ,zlib)" search for all lines that contain the string "Adam Smith" but not "caltech" or "zlib". This expands to the following metadata predicate:<p>
+<pre>
+    kMDItemTextContent = "Adam Smith"cdw && !((kMDItemTextContent = "caltech"cdw) || kMDItemTextContent = "zlib"cdw)
+</pre><p>
+
+A few more examples:<p>
+<table border=1 cellspacing=0 cellpadding=4>
+<tr><th>Contents Query<th>Filename Filter
+<tr><td colspan=2>Look for the literal string "john sam":
+<tr class=example><td nowrap>john sam<td>
+<tr><td colspan=2>Look for file containing "john" and "sam" somewhere in it's contents:
+<tr class=example><td nowrap>john +sam<td>
+<tr><td colspan=2>Look for file containing "john" but not "sam" anywhere in it's contents:
+<tr class=example><td nowrap>john -sam<td>
+<tr><td colspan=2>Look for PDF files containing "john and "sam" somewhere in it's contents:
+<tr class=example><td nowrap>john +sam<td>*.pdf
+<tr><td colspan=2>List all PDF files containing string "john brown":
+<tr class=example><td nowrap>john brown<td>*.pdf
+<tr><td colspan=2>List all image files with Icon in the name:
+<tr class=example><td nowrap>Icon<td>*.png ,*.jpg ,*.tif
+<tr><td colspan=2>List all PDF files containing "Bank" not in the Downloads directory:
+<tr class=example><td nowrap>Bank<td>.pdf -Downloads
+</table><p>
+
+SearchLight performs an initial search using your Mac's metadata then extracts individual lines where the pattern is matched using a regular expression. For complex expressions, the file may match as a whole but there may be no lines displayed if the regular expression does not match on a single line.<p>
+
+If you are searching for images (*.png or *.gif etc. as a file filter) the main pattern field will filter on the image's file name rather than it's contents. If you install the handy pdftotext using "$ brew cask install pdftotext" you will be able to preview matches in PDF files.<p>
+</div>

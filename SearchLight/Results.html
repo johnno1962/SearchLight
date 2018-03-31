@@ -1,0 +1,76 @@
+<html><head>
+<link rel="stylesheet" type="text/css" href="Styles.css">
+<script>
+
+function addRule(rule) {
+    var style = document.createElement("style");
+    document.head.appendChild(style);
+    style.sheet.insertRule(rule, 0);
+}
+
+var results
+
+function appendResult(div) {
+    if (!results) {
+        document.body.innerHTML = "<table width='100%' cellspacing=0 cellpadding=0><tr><td><pre id=results>";
+        results = document.getElementById("results");
+    }
+    if (div)
+        results.appendChild(div);
+}
+
+function appendEmail(icon, name, file, path, link, date, size, from, addr) {
+    var div = document.createElement("DIV");
+    div.className = "email";
+    div.innerHTML = "<div class=heading><img class=icon src=\""+icon+"\"> <a href=\""+path+"/"+file+"\" title=\""+path+"/"+file+"\">" + date + " <span class=subject title=\""+size+" bytes\">\"" + name + "\"</span></a> <span title=\""+addr+"\">" + from + " &lt;" + addr + "&gt;";
+    appendResult(div);
+    return div;
+}
+
+function appendImage(icon, name, file, path, link, date, size) {
+    var div = document.createElement("DIV");
+    div.className = "file";
+    div.innerHTML = "<div class=heading><img class=icon src=\""+icon+"\"> <a class=filename href=\"file://"+path+"/"+file+"\" title=\""+date+" - "+size+" bytes\">" + name + "</a> <a href=\"file://"+path+"\">" + link + "</a> " + date;
+    appendResult(div);
+    return div;
+}
+
+function appendFile(icon, name, file, path, link, date, size, proj, url) {
+    var div = document.createElement("DIV");
+    div.className = "file";
+    div.innerHTML = "<div class=heading><img class=icon src=\""+icon+"\"> <a class=filename href=\""+(url||"file://"+path+"/"+file)+"\" title=\""+date+" - "+size+" bytes\">"+ name + "</a> "+(proj.length  ? "<a href=\""+proj[0]+"\" title=\""+proj[0]+"\"><img class=icon src=\""+proj[1]+"\"> "+proj[2]+"</a> " : "")+"<a href=\"file://"+path+"\">" + link + "</a> " + date;
+    appendResult(div);
+    return div;
+}
+
+function appendMatch(div, html) {
+    var pre = document.createElement("DIV");
+    pre.className = "match";
+    pre.innerHTML = html;
+    (div || results || document.body).appendChild(pre);
+}
+
+function appendEndMatches(div) {
+    appendMatch(div, " ... max matches reached");
+}
+
+function appendTotal(count) {
+    var div = document.createElement("DIV");
+    div.className = "heading";
+    div.innerHTML = count + " file matches";
+    appendResult(div);
+}
+
+function setSource(path, html) {
+    var div = document.createElement("DIV");
+    div.className = "heading fixed";
+    div.innerHTML = "<a href=\""+path+"\">" + path + "</a>";
+    appendResult(div)
+    div = document.createElement("DIV");
+    div.innerHTML = html;
+    appendResult(div)
+    document.getElementById("matchLocation").scrollIntoView();
+}
+
+</script></head>
+<body><img id=loading src='spinner.svg' width=48 height=48 style='padding-left: 15px;'>

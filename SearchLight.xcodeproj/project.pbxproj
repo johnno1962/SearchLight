@@ -1,0 +1,731 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BB0BC3212048799300E2CFF4 /* Results.html in Resources */ = {isa = PBXBuildFile; fileRef = BB0BC3202048799300E2CFF4 /* Results.html */; };
+		BB0BC3292048CB1200E2CFF4 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0BC3282048CB1200E2CFF4 /* WebKit.framework */; };
+		BB0BC32B2048D7E200E2CFF4 /* Icon.icns in Resources */ = {isa = PBXBuildFile; fileRef = BB0BC32A2048D7E200E2CFF4 /* Icon.icns */; };
+		BB0EA039204F0FBE009123B4 /* SourceKit.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA038204F0FBE009123B4 /* SourceKit.m */; };
+		BB0EA03D204FBD98009123B4 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = BB0EA03C204FBD98009123B4 /* Credits.rtf */; };
+		BB0EA04F2050C67B009123B4 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA04E2050C67B009123B4 /* AppDelegate.m */; };
+		BB0EA0512050C67B009123B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0EA0502050C67B009123B4 /* Assets.xcassets */; };
+		BB0EA0542050C67B009123B4 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB0EA0522050C67B009123B4 /* MainMenu.xib */; };
+		BB0EA0572050C67B009123B4 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA0562050C67B009123B4 /* main.m */; };
+		BB6A37E2204B644900A05CBA /* FindWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6A37E1204B644900A05CBA /* FindWindow.m */; };
+		BB6A37E9204BB21F00A05CBA /* Preferences.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB6A37E8204BB21F00A05CBA /* Preferences.mm */; };
+		BB6A381D204D515300A05CBA /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = BB6A381C204D515300A05CBA /* Styles.css */; };
+		BB77BC902058465A00F820C6 /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA040205046F1009123B4 /* Swift.swift */; };
+		BB7AA44A205AE394005F3F6D /* searchlight.launch.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA449205AE393005F3F6D /* searchlight.launch.plist */; };
+		BB7AA44D205CC5D2005F3F6D /* folder_blue_explorer.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */; };
+		BBC1A2FC2048541B002B36A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A2FB2048541B002B36A0 /* AppDelegate.m */; };
+		BBC1A2FF2048541C002B36A0 /* Document.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A2FE2048541C002B36A0 /* Document.mm */; };
+		BBC1A3022048541C002B36A0 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC1A3002048541C002B36A0 /* Document.xib */; };
+		BBC1A30420485423002B36A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBC1A30320485423002B36A0 /* Assets.xcassets */; };
+		BBC1A30720485423002B36A0 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC1A30520485423002B36A0 /* MainMenu.xib */; };
+		BBC1A30A20485423002B36A0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A30920485423002B36A0 /* main.m */; };
+		BBC1A31520485423002B36A0 /* SearchLightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A31420485423002B36A0 /* SearchLightTests.m */; };
+		BBEB98F92056DB3400D5B4FD /* SrchLight.tif in Resources */ = {isa = PBXBuildFile; fileRef = BBEB98F82056DB3100D5B4FD /* SrchLight.tif */; };
+		BBEB98FB205725CE00D5B4FD /* Splash.html in Resources */ = {isa = PBXBuildFile; fileRef = BBEB98FA205725CE00D5B4FD /* Splash.html */; };
+		BBFB7057206F53480043160C /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = BBFB7056206F53470043160C /* LICENSE */; };
+		BBFB705B206F64C20043160C /* spinner.svg in Resources */ = {isa = PBXBuildFile; fileRef = BBFB705A206F64C20043160C /* spinner.svg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BBC1A31120485423002B36A0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BBC1A2EF2048541B002B36A0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BBC1A2F62048541B002B36A0;
+			remoteInfo = SearchLight;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BB03D1E52052D70900DA5BD4 /* validatereceipt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = validatereceipt.m; sourceTree = "<group>"; };
+		BB0BC3202048799300E2CFF4 /* Results.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Results.html; sourceTree = "<group>"; };
+		BB0BC3282048CB1200E2CFF4 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		BB0BC32A2048D7E200E2CFF4 /* Icon.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = Icon.icns; sourceTree = "<group>"; };
+		BB0EA037204F0FBE009123B4 /* SourceKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SourceKit.h; sourceTree = "<group>"; };
+		BB0EA038204F0FBE009123B4 /* SourceKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceKit.m; sourceTree = "<group>"; };
+		BB0EA03A204F13EB009123B4 /* sourcekitd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sourcekitd.h; sourceTree = "<group>"; };
+		BB0EA03C204FBD98009123B4 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
+		BB0EA040205046F1009123B4 /* Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
+		BB0EA04B2050C67B009123B4 /* SearchLightMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchLightMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB0EA04D2050C67B009123B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BB0EA04E2050C67B009123B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BB0EA0502050C67B009123B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB0EA0532050C67B009123B4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BB0EA0552050C67B009123B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB0EA0562050C67B009123B4 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BB6A37E0204B644900A05CBA /* FindWindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindWindow.h; sourceTree = "<group>"; };
+		BB6A37E1204B644900A05CBA /* FindWindow.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindWindow.m; sourceTree = "<group>"; };
+		BB6A37E7204BB21F00A05CBA /* Preferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		BB6A37E8204BB21F00A05CBA /* Preferences.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Preferences.mm; sourceTree = "<group>"; };
+		BB6A381C204D515300A05CBA /* Styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Styles.css; sourceTree = "<group>"; };
+		BB7AA449205AE393005F3F6D /* searchlight.launch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = searchlight.launch.plist; sourceTree = "<group>"; };
+		BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_blue_explorer.png; sourceTree = "<group>"; };
+		BBC1A2F72048541B002B36A0 /* SearchLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC1A2FA2048541B002B36A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BBC1A2FB2048541B002B36A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBC1A2FD2048541C002B36A0 /* Document.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Document.h; sourceTree = "<group>"; };
+		BBC1A2FE2048541C002B36A0 /* Document.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Document.mm; sourceTree = "<group>"; };
+		BBC1A3012048541C002B36A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Document.xib; sourceTree = "<group>"; };
+		BBC1A30320485423002B36A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBC1A30620485423002B36A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		BBC1A30820485423002B36A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBC1A30920485423002B36A0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BBC1A31020485423002B36A0 /* SearchLightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SearchLightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBC1A31420485423002B36A0 /* SearchLightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchLightTests.m; sourceTree = "<group>"; };
+		BBC1A31620485423002B36A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBEB98E92054A8FD00D5B4FD /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		BBEB98EB2054AA0300D5B4FD /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		BBEB98ED2054AA2900D5B4FD /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		BBEB98EF2054AA5C00D5B4FD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		BBEB98F82056DB3100D5B4FD /* SrchLight.tif */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = SrchLight.tif; sourceTree = "<group>"; };
+		BBEB98FA205725CE00D5B4FD /* Splash.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = Splash.html; sourceTree = "<group>"; };
+		BBFB7055206F53140043160C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BBFB7056206F53470043160C /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		BBFB705A206F64C20043160C /* spinner.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = spinner.svg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BB0EA0482050C67B009123B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A2F42048541B002B36A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0BC3292048CB1200E2CFF4 /* WebKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A30D20485423002B36A0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BB0BC3272048CB1200E2CFF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BBEB98EF2054AA5C00D5B4FD /* Cocoa.framework */,
+				BBEB98ED2054AA2900D5B4FD /* IOKit.framework */,
+				BBEB98EB2054AA0300D5B4FD /* SystemConfiguration.framework */,
+				BBEB98E92054A8FD00D5B4FD /* Security.framework */,
+				BB0BC3282048CB1200E2CFF4 /* WebKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BB0EA04C2050C67B009123B4 /* SearchLightMenuBar */ = {
+			isa = PBXGroup;
+			children = (
+				BBEB98F82056DB3100D5B4FD /* SrchLight.tif */,
+				BB0EA04D2050C67B009123B4 /* AppDelegate.h */,
+				BB0EA04E2050C67B009123B4 /* AppDelegate.m */,
+				BB0EA0502050C67B009123B4 /* Assets.xcassets */,
+				BB0EA0522050C67B009123B4 /* MainMenu.xib */,
+				BB0EA0552050C67B009123B4 /* Info.plist */,
+				BB0EA0562050C67B009123B4 /* main.m */,
+			);
+			path = SearchLightMenuBar;
+			sourceTree = "<group>";
+		};
+		BBC1A2EE2048541B002B36A0 = {
+			isa = PBXGroup;
+			children = (
+				BBFB7056206F53470043160C /* LICENSE */,
+				BBFB7055206F53140043160C /* README.md */,
+				BBC1A2F92048541B002B36A0 /* SearchLight */,
+				BBC1A31320485423002B36A0 /* SearchLightTests */,
+				BB0EA04C2050C67B009123B4 /* SearchLightMenuBar */,
+				BBC1A2F82048541B002B36A0 /* Products */,
+				BB0BC3272048CB1200E2CFF4 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		BBC1A2F82048541B002B36A0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBC1A2F72048541B002B36A0 /* SearchLight.app */,
+				BBC1A31020485423002B36A0 /* SearchLightTests.xctest */,
+				BB0EA04B2050C67B009123B4 /* SearchLightMenuBar.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBC1A2F92048541B002B36A0 /* SearchLight */ = {
+			isa = PBXGroup;
+			children = (
+				BBC1A2FA2048541B002B36A0 /* AppDelegate.h */,
+				BBC1A2FB2048541B002B36A0 /* AppDelegate.m */,
+				BBC1A2FD2048541C002B36A0 /* Document.h */,
+				BBC1A2FE2048541C002B36A0 /* Document.mm */,
+				BB6A37E0204B644900A05CBA /* FindWindow.h */,
+				BB6A37E1204B644900A05CBA /* FindWindow.m */,
+				BB6A37E7204BB21F00A05CBA /* Preferences.h */,
+				BB6A37E8204BB21F00A05CBA /* Preferences.mm */,
+				BB03D1E52052D70900DA5BD4 /* validatereceipt.m */,
+				BB0EA037204F0FBE009123B4 /* SourceKit.h */,
+				BB0EA038204F0FBE009123B4 /* SourceKit.m */,
+				BB0EA03A204F13EB009123B4 /* sourcekitd.h */,
+				BBC1A3002048541C002B36A0 /* Document.xib */,
+				BBC1A30320485423002B36A0 /* Assets.xcassets */,
+				BBC1A30520485423002B36A0 /* MainMenu.xib */,
+				BB0BC32A2048D7E200E2CFF4 /* Icon.icns */,
+				BBC1A30820485423002B36A0 /* Info.plist */,
+				BBC1A30920485423002B36A0 /* main.m */,
+				BBFB705A206F64C20043160C /* spinner.svg */,
+				BBEB98FA205725CE00D5B4FD /* Splash.html */,
+				BB0BC3202048799300E2CFF4 /* Results.html */,
+				BB6A381C204D515300A05CBA /* Styles.css */,
+				BB0EA03C204FBD98009123B4 /* Credits.rtf */,
+				BB0EA040205046F1009123B4 /* Swift.swift */,
+				BB7AA449205AE393005F3F6D /* searchlight.launch.plist */,
+				BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */,
+			);
+			path = SearchLight;
+			sourceTree = "<group>";
+		};
+		BBC1A31320485423002B36A0 /* SearchLightTests */ = {
+			isa = PBXGroup;
+			children = (
+				BBC1A31420485423002B36A0 /* SearchLightTests.m */,
+				BBC1A31620485423002B36A0 /* Info.plist */,
+			);
+			path = SearchLightTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BB0EA04A2050C67B009123B4 /* SearchLightMenuBar */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BB0EA0592050C67B009123B4 /* Build configuration list for PBXNativeTarget "SearchLightMenuBar" */;
+			buildPhases = (
+				BB0EA0472050C67B009123B4 /* Sources */,
+				BB0EA0482050C67B009123B4 /* Frameworks */,
+				BB0EA0492050C67B009123B4 /* Resources */,
+				BB0EA0642050CF08009123B4 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchLightMenuBar;
+			productName = SearchLightMenuBar;
+			productReference = BB0EA04B2050C67B009123B4 /* SearchLightMenuBar.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBC1A2F62048541B002B36A0 /* SearchLight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBC1A31920485423002B36A0 /* Build configuration list for PBXNativeTarget "SearchLight" */;
+			buildPhases = (
+				BB0EA03B204F9F7F009123B4 /* ShellScript */,
+				BBC1A2F32048541B002B36A0 /* Sources */,
+				BBC1A2F42048541B002B36A0 /* Frameworks */,
+				BBC1A2F52048541B002B36A0 /* Resources */,
+				BB7AA448205ADE10005F3F6D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SearchLight;
+			productName = SearchLight;
+			productReference = BBC1A2F72048541B002B36A0 /* SearchLight.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BBC1A30F20485423002B36A0 /* SearchLightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBC1A31C20485423002B36A0 /* Build configuration list for PBXNativeTarget "SearchLightTests" */;
+			buildPhases = (
+				BBC1A30C20485423002B36A0 /* Sources */,
+				BBC1A30D20485423002B36A0 /* Frameworks */,
+				BBC1A30E20485423002B36A0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BBC1A31220485423002B36A0 /* PBXTargetDependency */,
+			);
+			name = SearchLightTests;
+			productName = SearchLightTests;
+			productReference = BBC1A31020485423002B36A0 /* SearchLightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBC1A2EF2048541B002B36A0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "John Holdsworth";
+				TargetAttributes = {
+					BB0EA04A2050C67B009123B4 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					BBC1A2F62048541B002B36A0 = {
+						CreatedOnToolsVersion = 9.3;
+						LastSwiftMigration = 0910;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 0;
+							};
+						};
+					};
+					BBC1A30F20485423002B36A0 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BBC1A2F62048541B002B36A0;
+					};
+				};
+			};
+			buildConfigurationList = BBC1A2F22048541B002B36A0 /* Build configuration list for PBXProject "SearchLight" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBC1A2EE2048541B002B36A0;
+			productRefGroup = BBC1A2F82048541B002B36A0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBC1A2F62048541B002B36A0 /* SearchLight */,
+				BBC1A30F20485423002B36A0 /* SearchLightTests */,
+				BB0EA04A2050C67B009123B4 /* SearchLightMenuBar */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BB0EA0492050C67B009123B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0EA0512050C67B009123B4 /* Assets.xcassets in Resources */,
+				BB0EA0542050C67B009123B4 /* MainMenu.xib in Resources */,
+				BBEB98F92056DB3400D5B4FD /* SrchLight.tif in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A2F52048541B002B36A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6A381D204D515300A05CBA /* Styles.css in Resources */,
+				BBFB7057206F53480043160C /* LICENSE in Resources */,
+				BB0BC3212048799300E2CFF4 /* Results.html in Resources */,
+				BBC1A30420485423002B36A0 /* Assets.xcassets in Resources */,
+				BBFB705B206F64C20043160C /* spinner.svg in Resources */,
+				BB7AA44A205AE394005F3F6D /* searchlight.launch.plist in Resources */,
+				BBEB98FB205725CE00D5B4FD /* Splash.html in Resources */,
+				BB7AA44D205CC5D2005F3F6D /* folder_blue_explorer.png in Resources */,
+				BBC1A3022048541C002B36A0 /* Document.xib in Resources */,
+				BB0BC32B2048D7E200E2CFF4 /* Icon.icns in Resources */,
+				BB0EA03D204FBD98009123B4 /* Credits.rtf in Resources */,
+				BBC1A30720485423002B36A0 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A30E20485423002B36A0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		BB0EA03B204F9F7F009123B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\nchmod +w \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB0EA0642050CF08009123B4 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "ln -sf ../../../Icon.icns \"$CODESIGNING_FOLDER_PATH/Contents/Resources\"";
+			showEnvVarsInLog = 0;
+		};
+		BB7AA448205ADE10005F3F6D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "LATEST=\"$(ls -trd SearchLight/SearchLightMenuBar\\ */SearchLightMenuBar.app | tail -1)\"\nrsync -av \"$LATEST\" \"$CODESIGNING_FOLDER_PATH/Contents/Resources\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BB0EA0472050C67B009123B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB0EA0572050C67B009123B4 /* main.m in Sources */,
+				BB0EA04F2050C67B009123B4 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A2F32048541B002B36A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC1A2FF2048541C002B36A0 /* Document.mm in Sources */,
+				BB0EA039204F0FBE009123B4 /* SourceKit.m in Sources */,
+				BBC1A30A20485423002B36A0 /* main.m in Sources */,
+				BB6A37E2204B644900A05CBA /* FindWindow.m in Sources */,
+				BBC1A2FC2048541B002B36A0 /* AppDelegate.m in Sources */,
+				BB77BC902058465A00F820C6 /* Swift.swift in Sources */,
+				BB6A37E9204BB21F00A05CBA /* Preferences.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BBC1A30C20485423002B36A0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBC1A31520485423002B36A0 /* SearchLightTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BBC1A31220485423002B36A0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BBC1A2F62048541B002B36A0 /* SearchLight */;
+			targetProxy = BBC1A31120485423002B36A0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BB0EA0522050C67B009123B4 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BB0EA0532050C67B009123B4 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		BBC1A3002048541C002B36A0 /* Document.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBC1A3012048541C002B36A0 /* Base */,
+			);
+			name = Document.xib;
+			sourceTree = "<group>";
+		};
+		BBC1A30520485423002B36A0 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBC1A30620485423002B36A0 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BB0EA05A2050C67B009123B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		BB0EA05B2050C67B009123B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		BBC1A31720485423002B36A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BBC1A31820485423002B36A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
+				CLANG_CXX_LIBRARY = "compiler-default";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+			};
+			name = Release;
+		};
+		BBC1A31A20485423002B36A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				HEADER_SEARCH_PATHS = /Users/johnholdsworth/Developer/openssl/include;
+				INFOPLIST_FILE = SearchLight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = /usr/lib/libcrypto.dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		BBC1A31B20485423002B36A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				HEADER_SEARCH_PATHS = /Users/johnholdsworth/Developer/openssl/include;
+				INFOPLIST_FILE = SearchLight/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				OTHER_LDFLAGS = /usr/lib/libcrypto.dylib;
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		BBC1A31D20485423002B36A0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				INFOPLIST_FILE = SearchLightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SearchLight.app/Contents/MacOS/SearchLight";
+			};
+			name = Debug;
+		};
+		BBC1A31E20485423002B36A0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 9V5A8WE85E;
+				INFOPLIST_FILE = SearchLightTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SearchLight.app/Contents/MacOS/SearchLight";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BB0EA0592050C67B009123B4 /* Build configuration list for PBXNativeTarget "SearchLightMenuBar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BB0EA05A2050C67B009123B4 /* Debug */,
+				BB0EA05B2050C67B009123B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBC1A2F22048541B002B36A0 /* Build configuration list for PBXProject "SearchLight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC1A31720485423002B36A0 /* Debug */,
+				BBC1A31820485423002B36A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBC1A31920485423002B36A0 /* Build configuration list for PBXNativeTarget "SearchLight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC1A31A20485423002B36A0 /* Debug */,
+				BBC1A31B20485423002B36A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBC1A31C20485423002B36A0 /* Build configuration list for PBXNativeTarget "SearchLightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBC1A31D20485423002B36A0 /* Debug */,
+				BBC1A31E20485423002B36A0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BBC1A2EF2048541B002B36A0 /* Project object */;
+}

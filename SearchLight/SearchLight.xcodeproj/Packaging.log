@@ -1,0 +1,76 @@
+2018-03-06 22:13:41 +0000  Initial pipeline context: <IDEDistributionProcessingPipelineContext: 0x7f8d7a42ca80; archive(resolved)='<IDEArchive: 0x7f8d5d8f6260>', distributionTask(resolved)='2', distributionMethod(resolved)='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team(resolved)='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	Chain (10, self inclusive):
+	<IDEDistributionProcessingPipelineContext: 0x7f8d7a42ca80; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionProcessingPipelineContext: 0x7f8d7a44aac0; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d4e5522e0; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d71740160; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d7811e730; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d7490f580; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d5ce753e0; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d7a084770; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='<IDEProvisioningBasicTeam 0x7f8d6dedb610: teamID: 9V5A8WE85E, teamName: John Holdsworth>'>
+	<IDEDistributionContext: 0x7f8d5b818120; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='<IDEDistributionMethodDirectDistribution: 0x7f8d4ef5f140>', team='(null)'>
+	<IDEDistributionContext: 0x7f8d7a2e9820; archive = '<IDEArchive: 0x7f8d5d8f6260>', distributionMethod='(null)', team='(null)'>
+</IDEDistributionProcessingPipelineContext: 0x7f8d7a42ca80>
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCreateDestRootStep
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCopyItemStep
+2018-03-06 22:13:41 +0000  Running /usr/bin/ditto '-V' '/Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app' '/var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/Root/Applications/SearchLight.app'
+2018-03-06 22:13:41 +0000  >>> Copying /Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app 
+2018-03-06 22:13:41 +0000  
+2018-03-06 22:13:41 +0000  copying file ./Contents/_CodeSignature/CodeResources ... 
+2018-03-06 22:13:41 +0000  4310 bytes for ./Contents/_CodeSignature/CodeResources
+copying file ./Contents/Info.plist ... 
+2996 bytes for ./Contents/Info.plist
+copying file ./Contents/MacOS/SearchLight ... 
+112048 bytes for ./Contents/MacOS/SearchLight
+copying file ./Contents/PkgInfo ... 
+8 bytes for ./Contents/PkgInfo
+2018-03-06 22:13:41 +0000  copying file ./Contents/Resources/Base.lproj/Document.nib ... 
+2018-03-06 22:13:41 +0000  20333 bytes for ./Contents/Resources/Base.lproj/Document.nib
+2018-03-06 22:13:41 +0000  copying file ./Contents/Resources/Base.lproj/MainMenu.nib ... 
+2018-03-06 22:13:41 +0000  76482 bytes for ./Contents/Resources/Base.lproj/MainMenu.nib
+2018-03-06 22:13:41 +0000  copying file ./Contents/Resources/folder.png ... 
+2018-03-06 22:13:41 +0000  711 bytes for ./Contents/Resources/folder.png
+copying file ./Contents/Resources/Icon.icns ... 
+2018-03-06 22:13:41 +0000  294390 bytes for ./Contents/Resources/Icon.icns
+copying file ./Contents/Resources/Icon.png ... 
+2018-03-06 22:13:41 +0000  21256 bytes for ./Contents/Resources/Icon.png
+copying file ./Contents/Resources/loading.gif ... 
+2018-03-06 22:13:41 +0000  81572 bytes for ./Contents/Resources/loading.gif
+copying file ./Contents/Resources/Results.html ... 
+2018-03-06 22:13:41 +0000  3975 bytes for ./Contents/Resources/Results.html
+2018-03-06 22:13:41 +0000  copying file ./Contents/Resources/Selection.html ... 
+2018-03-06 22:13:41 +0000  511 bytes for ./Contents/Resources/Selection.html
+copying file ./Contents/Resources/Styles.css ... 
+2018-03-06 22:13:41 +0000  1235 bytes for ./Contents/Resources/Styles.css
+2018-03-06 22:13:41 +0000  /usr/bin/ditto exited with 0
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionEmbedProfileStep
+2018-03-06 22:13:41 +0000  Skipping profile for item: <IDEDistributionItem: 0x7f8d5100e790 'com.johnholdsworth.SearchLight' '<DVTFilePath:0x7f8d4fe19c20:'/Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app'>'>
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionAppThinningPlistStep
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCompileBitcodeStep
+2018-03-06 22:13:41 +0000  Skipping step: IDEDistributionCompileBitcodeStep because it said so
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCodeSlimmingStep
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCopyBCSymbolMapsStep
+2018-03-06 22:13:41 +0000  Skipping step: IDEDistributionCopyBCSymbolMapsStep because it said so
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionSymbolsStep
+2018-03-06 22:13:41 +0000  Skipping step: IDEDistributionSymbolsStep because it said so
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionAppThinningStep
+2018-03-06 22:13:41 +0000  Skipping step: IDEDistributionAppThinningStep because it said so
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionODRStep
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionStripXattrsStep
+2018-03-06 22:13:41 +0000  Running /usr/bin/xattr '-crs' '/var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/Root/Applications/SearchLight.app'
+2018-03-06 22:13:41 +0000  /usr/bin/xattr exited with 0
+2018-03-06 22:13:41 +0000  Processing step: IDEDistributionCodesignStep
+2018-03-06 22:13:41 +0000  Applying entitlements delta for <IDEDistributionItem: 0x7f8d5100e790 'com.johnholdsworth.SearchLight' '<DVTFilePath:0x7f8d4fe19c20:'/Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app'>'> from <IDEiCloudEntitlementsProcessor: 0x7f8d50855740>: {
+}
+2018-03-06 22:13:41 +0000  Entitlements for <IDEDistributionItem: 0x7f8d5100e790 'com.johnholdsworth.SearchLight' '<DVTFilePath:0x7f8d4fe19c20:'/Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app'>'>: {
+}
+2018-03-06 22:13:41 +0000  Writing entitlements for <IDEDistributionItem: 0x7f8d5100e790 'com.johnholdsworth.SearchLight' '<DVTFilePath:0x7f8d4fe19c20:'/Users/johnholdsworth/Library/Developer/Xcode/Archives/2018-03-06/SearchLight 06-03-2018, 22.13.xcarchive/Products/Applications/SearchLight.app'>'> to: /var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/entitlements3WGalG
+2018-03-06 22:13:41 +0000  Running /usr/bin/codesign '-vvv' '--force' '--sign' 'B5BA5B1C044959430DD7E33EFEBC73A0D9C79416' '--preserve-metadata=identifier,flags' '--entitlements' '/var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/entitlements3WGalG' '--requirements' '=designated => anchor apple generic  and identifier "$self.identifier" and ((cert leaf[field.1.2.840.113635.100.6.1.9] exists) or ( certificate 1[field.1.2.840.113635.100.6.2.6] exists and certificate leaf[field.1.2.840.113635.100.6.1.13] exists  and certificate leaf[subject.OU] = "9V5A8WE85E" ))' '/var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/Root/Applications/SearchLight.app'
+2018-03-06 22:13:42 +0000  /var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/Root/Applications/SearchLight.app: replacing existing signature
+2018-03-06 22:13:42 +0000  /var/folders/nh/gqmp6jxn4tn2tyhwqdcwcpkc0000gn/T/XcodeDistPipeline.N0f/Root/Applications/SearchLight.app: signed app bundle with Mach-O thin (x86_64) [com.johnholdsworth.SearchLight]
+2018-03-06 22:13:42 +0000  /usr/bin/codesign exited with 0
+2018-03-06 22:13:42 +0000  Processing step: IDEDistributionStreamingZipItemStep
+2018-03-06 22:13:42 +0000  Skipping step: IDEDistributionStreamingZipItemStep because it said so
+2018-03-06 22:13:42 +0000  Processing step: IDEDistributionSkipPackagingStep
+2018-03-06 22:13:42 +0000  Processing step: IDEDistributionCreateManifestStep
+2018-03-06 22:13:42 +0000  Skipping step: IDEDistributionCreateManifestStep because it said so

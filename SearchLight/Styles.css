@@ -1,0 +1,53 @@
+/*
+
+ Styles used to render search results in WebView.
+ The colors in this stylesheet will only apply if
+ the "Default" theme is selected in "Preferences"
+ and after the application has been restarted.
+
+ */
+
+body, table { margin: 0px; padding: 0px; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 10pt; background-color: transparent; }
+
+table { background-color: white; color: black; }
+pre, table tr.example td { font: 10pt Menlo; }
+
+/* per file/email header */
+div.heading { background-color: #E5E5E5; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 11pt; padding: 4px 10px; padding-top: 1px; color: #333333; }
+a.filename { font-weight: bold; }
+
+/* search results */
+a:link { color: black; }
+div.heading a { color: #333333; text-decoration: none; }
+div.heading a:hover { text-decoration: underline; }
+
+/* matches */
+div.match { border: 1px solid rgba(229, 229, 229, 0.4); padding: 5px 15px; background-color: #FFFFFF; }
+
+/* emails */
+div.email > .match { font-family: Helvetica, Arial, sans-serif; font-size: 10pt; }
+span.subject { font-weight: bold; }
+
+/* file type icon */
+img.icon { height: 16px; position: relative; top: 3px; }
+
+/* image match preview */
+img.image { padding: 9px; }
+
+/* source viewer */
+div.fixed { position: fixed; width: 100%; }
+table.preview { background-color: white; }
+span.highlight { color: #cf4944; font-weight: bold; }
+span.linenumber { color: black; }
+
+/* SourceKit kinds */
+.builtin  { color: #A90D91; }
+.comment  { color: #10743E; }
+.url, .url > a:link { color: blue; }
+.doccomment { color: #10743E; }
+.identifier { color: #3F6E74; }
+.keyword { color: #AD0D91; }
+.number { color: #1D26E1; }
+.string { color: #CB444D; }
+.typeidentifier { color: #5C2599; }
+
