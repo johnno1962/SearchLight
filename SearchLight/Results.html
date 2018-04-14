@@ -67,6 +67,10 @@ function setSource(path, html) {
     div.innerHTML = "<a href=\""+path+"\">" + path + "</a>";
     appendResult(div)
     div = document.createElement("DIV");
+    div.className = "heading";
+    div.innerHTML = "&nbsp;";
+    appendResult(div)
+    div = document.createElement("DIV");
     div.innerHTML = html;
     appendResult(div)
     document.getElementById("matchLocation").scrollIntoView();

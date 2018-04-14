@@ -53,6 +53,8 @@ static NSString *runMenuBar = @"Run MenuBar";
                         .firstObject stringByAppendingPathComponent:@"SearchLight.app/Contents/Resources/SearchLightMenuBar.app/Contents/MacOS/SearchLightMenuBar"];
         }
         agentPlist = [agentPlist stringByReplacingOccurrencesOfString:@"__APPPATH__" withString:execPath];
+        [[NSFileManager defaultManager] createDirectoryAtPath:agentPath.stringByDeletingLastPathComponent
+                                  withIntermediateDirectories:NO  attributes:nil error:NULL];
         [agentPlist writeToFile:agentPath atomically:YES encoding:NSUTF8StringEncoding error:NULL];
     }
     else {
