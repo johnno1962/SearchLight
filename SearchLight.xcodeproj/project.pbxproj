@@ -490,7 +490,7 @@
 				DEVELOPMENT_TEAM = 9V5A8WE85E;
 				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -505,7 +505,7 @@
 				DEVELOPMENT_TEAM = 9V5A8WE85E;
 				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

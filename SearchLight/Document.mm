@@ -5,7 +5,7 @@
 //  Created by John Holdsworth on 01/03/2018.
 //  Copyright © 2018 John Holdsworth. All rights reserved.
 //
-//  $Id: //depot/SearchLight/SearchLight/Document.mm#176 $
+//  $Id: //depot/SearchLight/SearchLight/Document.mm#177 $
 //
 
 #import "Document.h"
@@ -443,25 +443,27 @@ static NSMutableDictionary *typeIcons;
 - (void)addRules {
     if ([preferences.defaults objectForKey:@"headingColor"] || hasRules) {
         [self addRule:@"div.heading { background-color: %@; }"
-                 from:preferences.headingColor extra:nil to:webView];
+                 from:preferences.headingColor.webColor extra:nil to:webView];
         [self addRule:@"div.heading, div.heading > a:link { color: %@; }"
-                 from:preferences.headingTextColor extra:nil to:webView];
+                 from:preferences.headingTextColor.webColor extra:nil to:webView];
         [self addRule:@"div.match { background-color: %@; border: 1px solid %@; }"
-                 from:preferences.matchColor extra:preferences.headingColor.borderColor to:webView];
+                 from:preferences.matchColor.webColor extra:preferences.headingColor.borderColor to:webView];
         [self addRule:@"div.match, div.match > a:link { color: %@; }"
-                 from:preferences.matchTextColor extra:nil to:webView];
+                 from:preferences.matchTextColor.webColor extra:nil to:webView];
         [self addRule:@"div.preview { background-color: %@; }"
-                 from:preferences.previewColor extra:nil to:webView];
+                 from:preferences.previewColor.webColor extra:nil to:webView];
         [self addRule:@"table, a:link, span.linenumber { color: %@; }"
-                 from:preferences.previewTextColor extra:nil to:webView];
+                 from:preferences.previewTextColor.webColor extra:nil to:webView];
         hasRules = YES;
     }
+    [self addRule:@"img.image { max-width: %@; }"
+             from:@(webView.frame.size.width - 60.).stringValue extra:nil to:webView];
 }
 
-- (void)addRule:(NSString *)rule from:(NSColorWell *)well extra:(NSString *)extra to:(WebView *)webView {
+- (void)addRule:(NSString *)rule from:(NSString *)well extra:(NSString *)extra to:(WebView *)webView {
     [webView.windowScriptObject callWebScriptMethod:@"addRule"
                                       withArguments:@[[NSString stringWithFormat:rule,
-                                                       well.webColor, extra]]];
+                                                       well, extra]]];
 }
 
 // Initialize Search Method
