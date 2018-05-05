@@ -22,6 +22,7 @@
 		BB77BC902058465A00F820C6 /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA040205046F1009123B4 /* Swift.swift */; };
 		BB7AA44A205AE394005F3F6D /* searchlight.launch.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA449205AE393005F3F6D /* searchlight.launch.plist */; };
 		BB7AA44D205CC5D2005F3F6D /* folder_blue_explorer.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */; };
+		BB9B0CA52097E1650037C6B8 /* SrchLight.tif in Resources */ = {isa = PBXBuildFile; fileRef = BBEB98F82056DB3100D5B4FD /* SrchLight.tif */; };
 		BBC1A2FC2048541B002B36A0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A2FB2048541B002B36A0 /* AppDelegate.m */; };
 		BBC1A2FF2048541C002B36A0 /* Document.mm in Sources */ = {isa = PBXBuildFile; fileRef = BBC1A2FE2048541C002B36A0 /* Document.mm */; };
 		BBC1A3022048541C002B36A0 /* Document.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC1A3002048541C002B36A0 /* Document.xib */; };
@@ -70,6 +71,8 @@
 		BB6A381C204D515300A05CBA /* Styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Styles.css; sourceTree = "<group>"; };
 		BB7AA449205AE393005F3F6D /* searchlight.launch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = searchlight.launch.plist; sourceTree = "<group>"; };
 		BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_blue_explorer.png; sourceTree = "<group>"; };
+		BB9B0CA32097D2760037C6B8 /* SearchLightMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchLightMenuBar.entitlements; sourceTree = "<group>"; };
+		BB9B0CA42097D2DC0037C6B8 /* SearchLight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchLight.entitlements; sourceTree = "<group>"; };
 		BBC1A2F72048541B002B36A0 /* SearchLight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchLight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBC1A2FA2048541B002B36A0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBC1A2FB2048541B002B36A0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -136,6 +139,7 @@
 		BB0EA04C2050C67B009123B4 /* SearchLightMenuBar */ = {
 			isa = PBXGroup;
 			children = (
+				BB9B0CA32097D2760037C6B8 /* SearchLightMenuBar.entitlements */,
 				BBEB98F82056DB3100D5B4FD /* SrchLight.tif */,
 				BB0EA04D2050C67B009123B4 /* AppDelegate.h */,
 				BB0EA04E2050C67B009123B4 /* AppDelegate.m */,
@@ -173,6 +177,7 @@
 		BBC1A2F92048541B002B36A0 /* SearchLight */ = {
 			isa = PBXGroup;
 			children = (
+				BB9B0CA42097D2DC0037C6B8 /* SearchLight.entitlements */,
 				BBC1A2FA2048541B002B36A0 /* AppDelegate.h */,
 				BBC1A2FB2048541B002B36A0 /* AppDelegate.m */,
 				BBC1A2FD2048541C002B36A0 /* Document.h */,
@@ -285,7 +290,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -295,7 +300,7 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -343,6 +348,7 @@
 			files = (
 				BB6A381D204D515300A05CBA /* Styles.css in Resources */,
 				BBFB7057206F53480043160C /* LICENSE in Resources */,
+				BB9B0CA52097E1650037C6B8 /* SrchLight.tif in Resources */,
 				BB0BC3212048799300E2CFF4 /* Results.html in Resources */,
 				BBC1A30420485423002B36A0 /* Assets.xcassets in Resources */,
 				BBFB705B206F64C20043160C /* spinner.svg in Resources */,
@@ -406,7 +412,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "LATEST=\"$(ls -trd SearchLight/SearchLightMenuBar\\ */SearchLightMenuBar.app | tail -1)\"\nrsync -av \"$LATEST\" \"$CODESIGNING_FOLDER_PATH/Contents/Resources\"\n";
+			shellScript = "LATEST=\"$(ls -trd SearchLight/SearchLightMenuBar\\ */SearchLightMenuBar.app | tail -1)\"\n#rsync -av \"$LATEST\" \"$CODESIGNING_FOLDER_PATH/Contents/Resources\"\n#rsync -av /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/sourcekitd.framework \"$CODESIGNING_FOLDER_PATH/Contents/Resources/\"";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -485,12 +491,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SearchLightMenuBar/SearchLightMenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9V5A8WE85E;
 				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -500,12 +506,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = SearchLightMenuBar/SearchLightMenuBar.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9V5A8WE85E;
 				INFOPLIST_FILE = SearchLightMenuBar/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLightMenuBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -561,7 +567,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -612,7 +618,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -625,6 +631,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SearchLight/SearchLight.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9V5A8WE85E;
@@ -645,6 +652,7 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = SearchLight/SearchLight.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 9V5A8WE85E;

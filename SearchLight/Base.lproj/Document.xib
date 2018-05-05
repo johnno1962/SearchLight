@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="13771"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="14109"/>
         <capability name="box content view" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,10 +26,10 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="SearchWindow" animationBehavior="default" id="xOd-HO-29H" userLabel="Window" customClass="FindWindow">
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="SearchWindow" animationBehavior="default" id="xOd-HO-29H" userLabel="Window" customClass="FindWindow">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="133" y="613" width="672" height="483"/>
+            <rect key="contentRect" x="688" y="624" width="672" height="483"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
             <value key="minSize" type="size" width="566" height="86"/>
             <view key="contentView" wantsLayer="YES" misplaced="YES" id="gIp-Ho-8D9">
@@ -43,10 +43,10 @@
                             <rect key="frame" x="1" y="1" width="664" height="74"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <button verticalHuggingPriority="750" misplaced="YES" id="qc8-6I-wMz">
-                                    <rect key="frame" x="19" y="40" width="27" height="27"/>
+                                <button toolTip="Set Search Scope" verticalHuggingPriority="750" misplaced="YES" id="qc8-6I-wMz">
+                                    <rect key="frame" x="14" y="40" width="27" height="27"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="folder" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="q6V-A9-T07">
+                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSFolder" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="q6V-A9-T07">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                         <font key="font" metaFont="system"/>
                                     </buttonCell>
@@ -55,8 +55,20 @@
                                         <action selector="selectFolder:" target="-2" id="8yB-0N-LTs"/>
                                     </connections>
                                 </button>
+                                <button toolTip="Open Preferences" verticalHuggingPriority="750" misplaced="YES" id="M5m-0c-6Vb">
+                                    <rect key="frame" x="15" y="11" width="26" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSAdvanced" imagePosition="only" alignment="center" imageScaling="proportionallyUpOrDown" inset="2" id="lJ9-Dh-2NK">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <accessibility description="Settings" help="Opens settings panel" identifier="Settings"/>
+                                    <connections>
+                                        <action selector="prefs:" target="-2" id="j7q-q4-jtT"/>
+                                    </connections>
+                                </button>
                                 <searchField toolTip="Filename filter (optional.)" wantsLayer="YES" verticalHuggingPriority="750" misplaced="YES" textCompletion="NO" id="B14-mX-xF8">
-                                    <rect key="frame" x="118" y="12" width="223" height="22"/>
+                                    <rect key="frame" x="147" y="12" width="164" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Filename Filter" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" recentsAutosaveName="fileSearch" id="Vk9-w2-PQm">
                                         <font key="font" metaFont="system"/>
@@ -68,17 +80,8 @@
                                         <action selector="search:" target="-2" id="zGi-nQ-GoP"/>
                                     </connections>
                                 </searchField>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="4Hc-gS-wQc">
-                                    <rect key="frame" x="18" y="15" width="94" height="17"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename filter:" id="acv-oN-nui">
-                                        <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
                                 <searchField toolTip="Pattern to search documents for." wantsLayer="YES" verticalHuggingPriority="750" misplaced="YES" allowsCharacterPickerTouchBarItem="YES" textCompletion="NO" id="LSs-hs-NhB">
-                                    <rect key="frame" x="58" y="42" width="283" height="22"/>
+                                    <rect key="frame" x="49" y="42" width="262" height="22"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                     <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" placeholderString="Contents Query" usesSingleLineMode="YES" bezelStyle="round" sendsWholeSearchString="YES" maximumRecents="50" recentsAutosaveName="mainSearch" id="8rB-g9-ag5">
                                         <font key="font" metaFont="system"/>
@@ -91,7 +94,7 @@
                                     </connections>
                                 </searchField>
                                 <button toolTip="Execute/Cancel search. ToolTip updated for each query to display predicate." verticalHuggingPriority="750" misplaced="YES" id="AGV-tt-xsk">
-                                    <rect key="frame" x="531" y="5" width="83" height="32"/>
+                                    <rect key="frame" x="505" y="5" width="83" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QFh-Ov-bnh">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -103,7 +106,7 @@
                                     </connections>
                                 </button>
                                 <button toolTip="Return to search results (⌘B)" verticalHuggingPriority="750" misplaced="YES" id="0i5-fO-WAU">
-                                    <rect key="frame" x="614" y="5" width="36" height="32"/>
+                                    <rect key="frame" x="620" y="35" width="36" height="32"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="push" title="&lt;" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="HP1-th-hsm">
                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -117,7 +120,7 @@
                                     </connections>
                                 </button>
                                 <popUpButton toolTip="Time range for results." verticalHuggingPriority="750" misplaced="YES" id="XMY-Jl-OvT">
-                                    <rect key="frame" x="427" y="39" width="105" height="26"/>
+                                    <rect key="frame" x="401" y="39" width="105" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="Whenever" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="2Zj-C5-cSS" id="A2t-xH-rtj">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -139,7 +142,7 @@
                                     </connections>
                                 </popUpButton>
                                 <popUpButton toolTip="Lines of context to display." verticalHuggingPriority="750" misplaced="YES" id="5e7-hX-Q3m">
-                                    <rect key="frame" x="535" y="39" width="112" height="26"/>
+                                    <rect key="frame" x="509" y="39" width="112" height="26"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <popUpButtonCell key="cell" type="push" title="One Line" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" tag="1" imageScaling="proportionallyDown" inset="2" selectedItem="LXQ-jS-ahh" id="uWq-6X-dUJ">
                                         <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -161,7 +164,7 @@
                                     </connections>
                                 </popUpButton>
                                 <button toolTip="Place implicit * at beginning and end of string." verticalHuggingPriority="750" misplaced="YES" id="gvh-WD-RMy">
-                                    <rect key="frame" x="347" y="44" width="76" height="18"/>
+                                    <rect key="frame" x="321" y="44" width="76" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Wildcard" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="KyX-CK-10u">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -170,7 +173,7 @@
                                     <accessibility description="Wilcard pattern matching" help="Whether to match part of string in queries" identifier="Wildcard"/>
                                 </button>
                                 <button toolTip="Include Emails in results." verticalHuggingPriority="750" misplaced="YES" id="Yrw-qb-zh6">
-                                    <rect key="frame" x="347" y="14" width="62" height="18"/>
+                                    <rect key="frame" x="321" y="14" width="62" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Emails" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="pQ4-ue-fYr">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -179,7 +182,7 @@
                                     <accessibility description="Include Emails" help="Whether to include emails in search results" identifier="Emails"/>
                                 </button>
                                 <button toolTip="Disregard case (does not currently work reliably.)" verticalHuggingPriority="750" misplaced="YES" id="uJP-Vg-tGs">
-                                    <rect key="frame" x="410" y="14" width="121" height="18"/>
+                                    <rect key="frame" x="384" y="14" width="121" height="18"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
                                     <buttonCell key="cell" type="check" title="Case Insensitive" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uvW-9r-3S4">
                                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -187,6 +190,27 @@
                                     </buttonCell>
                                     <accessibility description="Case insensitive searches" help="Whether to ignore the case of the search string" identifier="CaseInsensitive"/>
                                 </button>
+                                <button toolTip="Exit the Application" verticalHuggingPriority="750" misplaced="YES" id="kaM-8p-3b3">
+                                    <rect key="frame" x="588" y="5" width="68" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nku-27-B4j">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                    <accessibility description="Quit" help="Exit the Application" identifier="Quit"/>
+                                    <connections>
+                                        <action selector="quit:" target="-2" id="DPG-Ye-RfX"/>
+                                    </connections>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" id="4Hc-gS-wQc">
+                                    <rect key="frame" x="48" y="15" width="94" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Filename filter:" id="acv-oN-nui">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
                         </view>
                     </box>
@@ -250,6 +274,7 @@
         </window>
     </objects>
     <resources>
-        <image name="folder" width="64" height="64"/>
+        <image name="NSAdvanced" width="32" height="32"/>
+        <image name="NSFolder" width="32" height="32"/>
     </resources>
 </document>

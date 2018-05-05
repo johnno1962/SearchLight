@@ -5,7 +5,7 @@
 //  Created by John Holdsworth on 01/03/2018.
 //  Copyright © 2018 John Holdsworth. All rights reserved.
 //
-//  $Id: //depot/SearchLight/SearchLight/Document.mm#177 $
+//  $Id: //depot/SearchLight/SearchLight/Document.mm#178 $
 //
 
 #import "Document.h"
@@ -161,6 +161,10 @@ static NSMutableDictionary *typeIcons;
 
     [NSApp setServicesProvider:self];
     [webView.window makeKeyAndOrderFront:self];
+
+//    static BOOL opened;
+//    if (!opened && [NSHomeDirectory() contains:@"/Containers/"])
+//        [self selectFolder:NSHomeDirectory()];
 }
 
 - (void)setSearchScopes:(NSArray *)searchScopes {
@@ -168,15 +172,49 @@ static NSMutableDictionary *typeIcons;
     folder.toolTip = [searchScopes.firstObject path];;
 }
 
+static NSURL *opened;
+
 - (IBAction)selectFolder:(id)sender {
     NSOpenPanel *open = [NSOpenPanel new];
+    if ([sender isKindOfClass:[NSString class]])
+        open.directoryURL = [NSURL URLWithString:sender];
     open.prompt = NSLocalizedString(@"Select Search Scope", @"Select Search Scope");
     open.allowsMultipleSelection = TRUE;
     open.canChooseDirectories = TRUE;
     open.canChooseFiles = FALSE;
 //    open.showsHiddenFiles = TRUE;
-    if ([open runModal] == NSFileHandlingPanelOKButton)
-        self.fileURL = (self.searchScopes = open.URLs).firstObject;
+    if ([open runModal] == NSFileHandlingPanelOKButton) {
+        [super showWindows];
+        self.fileURL = opened = (self.searchScopes = open.URLs).firstObject;
+    }
+}
+
+- (void)selectHome {
+    if (!opened) {
+        [self selectFolder:NSHomeDirectory()];
+        opened = self.fileURL;
+    }
+    else {
+        [super showWindows];
+        self.fileURL = (self.searchScopes = @[opened]).firstObject;
+    }
+}
+
+- (void)showWindows {
+}
+
+- (IBAction)prefs:sender {
+    [preferences makeKeyAndOrderFront:self];
+}
+
+- (IBAction)quit:sender {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+    if ([[NSAlert alertWithMessageText:@"SearchLight"
+                         defaultButton:@"Quit" alternateButton:@"Cancel" otherButton:nil
+             informativeTextWithFormat:@"%@", NSLocalizedString(@"Exit SearchLight. Are you sure? You can leave the app running on the MenuBar by just closing the window.", @"Exit")] runModal] == NSAlertDefaultReturn)
+#pragma clang diagnostic pop
+        [NSApp terminate:sender];
 }
 
 - (void)setupSearchHistory:(NSSearchField *)searchField {

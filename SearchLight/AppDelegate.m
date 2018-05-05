@@ -12,6 +12,7 @@
 
 @implementation AppDelegate {
     IBOutlet NSMenuItem *menuBarItem;
+    NSStatusItem *statusItem;
 }
 
 static NSString *runMenuBar = @"Run MenuBar";
@@ -28,8 +29,45 @@ static NSString *runMenuBar = @"Run MenuBar";
                              @"-Library"] forKey:@"fileSearch"];
     }
     NSUpdateDynamicServices();
+#if 0
     menuBarItem.title = [self menuBarApp] ? @"Quit MenuBar" : runMenuBar;
 }
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
+    return YES;
+}
+
+- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
+    return NSTerminateNow;
+}
+
+- (void)applicationDidBecomeActive:(NSNotification *)notification;
+{
+    if (![[NSDocumentController sharedDocumentController] documents].count)
+        [[NSDocumentController sharedDocumentController] newDocument:self];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+#else
+    menuBarItem.hidden = TRUE;
+    NSStatusBar *statusBar = [NSStatusBar systemStatusBar];
+    statusItem = [statusBar statusItemWithLength:statusBar.thickness];
+    statusItem.image = [NSImage imageNamed:@"SrchLight"];
+    statusItem.toolTip = @"SearchLight";
+    statusItem.highlightMode = YES;
+    statusItem.enabled = YES;
+    statusItem.title = @"";
+
+    statusItem.button.target = self;
+    statusItem.button.action = @selector(wakeUp:);
+}
+
+- (IBAction)wakeUp:sender {
+    if (![[NSDocumentController sharedDocumentController] documents].firstObject)
+        [[NSDocumentController sharedDocumentController] newDocument:self];
+    [[[NSDocumentController sharedDocumentController] documents].firstObject selectHome];
+    [NSApp activateIgnoringOtherApps:YES];
+}
+#endif
 
 - (NSRunningApplication *)menuBarApp {
     return [NSRunningApplication
@@ -64,21 +102,6 @@ static NSString *runMenuBar = @"Run MenuBar";
     }
 }
 
-- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {
-    return YES;
-}
-
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-    return NSTerminateNow;
-}
-
-- (void)applicationDidBecomeActive:(NSNotification *)notification;
-{
-    if (![[NSDocumentController sharedDocumentController] documents].count)
-        [[NSDocumentController sharedDocumentController] newDocument:self];
-//    [NSApp activateIgnoringOtherApps:YES];
-}
-
 - (IBAction)openStyles:sender {
     [[NSWorkspace sharedWorkspace] openURL:[[NSBundle mainBundle] URLForResource:@"Styles" withExtension:@"css"]];
 }
@@ -90,6 +113,5 @@ static NSString *runMenuBar = @"Run MenuBar";
 - (void)applicationWillTerminate:(NSNotification *)aNotification {
     // Insert code here to tear down your application
 }
-
 
 @end

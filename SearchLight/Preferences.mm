@@ -8,7 +8,7 @@
 
 #import "Preferences.h"
 
-#import "validatereceipt.m"
+//#import "validatereceipt.m"
 
 Preferences *preferences;
 
@@ -59,7 +59,7 @@ static NSArray *colorParams = @[@"headingColor", @"matchColor", @"previewColor",
     [themeSelect.menu removeAllItems];
     for(NSBox *theme in themes.subviews[0].subviews)
         [themeSelect addItemWithTitle:theme.title];
-
+#if 0
     NSString *receipt = [NSSearchPathForDirectoriesInDomains(NSApplicationDirectory, NSLocalDomainMask, YES)
                 .firstObject stringByAppendingPathComponent:@"Lightning.app/Contents/_MASReceipt/receipt"];
     BOOL lightning = initializeSemaphors(receipt);
@@ -116,6 +116,7 @@ static NSArray *colorParams = @[@"headingColor", @"matchColor", @"previewColor",
              informativeTextWithFormat:@"%@", message] runModal] == NSAlertDefaultReturn)
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"macappstores://itunes.apple.com/us/app/lightning/id412736557?mt=12"]];
     [NSApp terminate:nil];
+#endif
 }
 
 - (void)save:(NSArray *)params {

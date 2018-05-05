@@ -6,6 +6,7 @@
 //  Copyright © 2018 John Holdsworth. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "SourceKit.h"
 #import "sourcekitd.h"
 #import <dlfcn.h>
@@ -66,7 +67,17 @@
     if (!(self = [super init]))
         return nil;
 
+//    NSOpenPanel *open = [NSOpenPanel new];
+//    open.directoryURL = [NSURL URLWithString:@"/Applications/Xcode.app"];
+//    open.prompt = NSLocalizedString(@"Select Search Scope", @"Select Search Scope");
+//    open.allowsMultipleSelection = TRUE;
+//    open.canChooseDirectories = TRUE;
+//    open.canChooseFiles = FALSE;
+//    if ([open runModal] != NSFileHandlingPanelOKButton)
+//        return nil;
+
     static const char sourcektd[] = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/sourcekitd.framework/sourcekitd";
+//    NSString *sourcektd = [[NSBundle mainBundle] pathForResource:@"sourcekitd" ofType:@"framework"];
     if (!(handle = dlopen(sourcektd, RTLD_NOW))) {
         NSLog(@"dlopen of sourcekitd for highlighting failed at: %s - %s", sourcektd, dlerror());
         return self;
@@ -137,6 +148,7 @@
     if (sourcekitd_response_is_error(resp)) {
         NSLog(@"soucekitd returns error reponse in highlighting %s, run from console", filePath);
         sourcekitd_response_description_dump_filedesc(resp, STDERR_FILENO);
+        handle = NULL;
         return nil;
     }
 

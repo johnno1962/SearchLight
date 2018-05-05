@@ -10,6 +10,7 @@
 
 @interface Document : NSDocument
 
+- (void)selectHome;
 
 @end
 
