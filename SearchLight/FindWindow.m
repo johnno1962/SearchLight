@@ -8,6 +8,7 @@
 
 #import "FindWindow.h"
 #import <WebKit/WebKit.h>
+#import "Document.h"
 
 @implementation FindWindow {
     IBOutlet NSSearchField *find;
@@ -36,10 +37,24 @@
     [webView searchFor:find.stringValue direction:YES caseSensitive:NO wrap:YES];
 }
 
+- (void)swipeWithEvent:(NSEvent *)event {
+//    NSLog(@"%@", event.description);
+    if (event.type == NSEventTypeSwipe) {
+        if (event.deltaX < 0)
+            [(Document *)webView.UIDelegate back:self];
+        else
+            [(Document *)webView.UIDelegate forward:self];
+    }
+    else
+        [super swipeWithEvent:event];
+}
+
 @end
 
 @implementation WebView(Findable)
 - (void)makeFindable {
-    ((FindWindow *)self.window)->webView = self;
+    FindWindow *window = (FindWindow *)self.window;
+    if (window)
+        window->webView = self;
 }
 @end

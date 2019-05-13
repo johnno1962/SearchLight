@@ -19,7 +19,8 @@
 		BB6A37E2204B644900A05CBA /* FindWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6A37E1204B644900A05CBA /* FindWindow.m */; };
 		BB6A37E9204BB21F00A05CBA /* Preferences.mm in Sources */ = {isa = PBXBuildFile; fileRef = BB6A37E8204BB21F00A05CBA /* Preferences.mm */; };
 		BB6A381D204D515300A05CBA /* Styles.css in Resources */ = {isa = PBXBuildFile; fileRef = BB6A381C204D515300A05CBA /* Styles.css */; };
-		BB77BC902058465A00F820C6 /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0EA040205046F1009123B4 /* Swift.swift */; };
+		BB76E9E22288841600E454F0 /* Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76E9E02288841600E454F0 /* Swift.swift */; };
+		BB76E9E32288841600E454F0 /* Tokenizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76E9E12288841600E454F0 /* Tokenizer.swift */; };
 		BB7AA44A205AE394005F3F6D /* searchlight.launch.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA449205AE393005F3F6D /* searchlight.launch.plist */; };
 		BB7AA44D205CC5D2005F3F6D /* folder_blue_explorer.png in Resources */ = {isa = PBXBuildFile; fileRef = BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */; };
 		BB9B0CA52097E1650037C6B8 /* SrchLight.tif in Resources */ = {isa = PBXBuildFile; fileRef = BBEB98F82056DB3100D5B4FD /* SrchLight.tif */; };
@@ -56,7 +57,6 @@
 		BB0EA038204F0FBE009123B4 /* SourceKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SourceKit.m; sourceTree = "<group>"; };
 		BB0EA03A204F13EB009123B4 /* sourcekitd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sourcekitd.h; sourceTree = "<group>"; };
 		BB0EA03C204FBD98009123B4 /* Credits.rtf */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
-		BB0EA040205046F1009123B4 /* Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
 		BB0EA04B2050C67B009123B4 /* SearchLightMenuBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SearchLightMenuBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB0EA04D2050C67B009123B4 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BB0EA04E2050C67B009123B4 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -69,6 +69,9 @@
 		BB6A37E7204BB21F00A05CBA /* Preferences.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		BB6A37E8204BB21F00A05CBA /* Preferences.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = Preferences.mm; sourceTree = "<group>"; };
 		BB6A381C204D515300A05CBA /* Styles.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = Styles.css; sourceTree = "<group>"; };
+		BB76E9DF2288841500E454F0 /* SearchLight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SearchLight-Bridging-Header.h"; sourceTree = "<group>"; };
+		BB76E9E02288841600E454F0 /* Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swift.swift; sourceTree = "<group>"; };
+		BB76E9E12288841600E454F0 /* Tokenizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tokenizer.swift; sourceTree = "<group>"; };
 		BB7AA449205AE393005F3F6D /* searchlight.launch.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = searchlight.launch.plist; sourceTree = "<group>"; };
 		BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder_blue_explorer.png; sourceTree = "<group>"; };
 		BB9B0CA32097D2760037C6B8 /* SearchLightMenuBar.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SearchLightMenuBar.entitlements; sourceTree = "<group>"; };
@@ -202,9 +205,11 @@
 				BB0BC3202048799300E2CFF4 /* Results.html */,
 				BB6A381C204D515300A05CBA /* Styles.css */,
 				BB0EA03C204FBD98009123B4 /* Credits.rtf */,
-				BB0EA040205046F1009123B4 /* Swift.swift */,
 				BB7AA449205AE393005F3F6D /* searchlight.launch.plist */,
 				BB7AA44C205CC5D2005F3F6D /* folder_blue_explorer.png */,
+				BB76E9E02288841600E454F0 /* Swift.swift */,
+				BB76E9E12288841600E454F0 /* Tokenizer.swift */,
+				BB76E9DF2288841500E454F0 /* SearchLight-Bridging-Header.h */,
 			);
 			path = SearchLight;
 			sourceTree = "<group>";
@@ -282,7 +287,7 @@
 		BBC1A2EF2048541B002B36A0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "John Holdsworth";
 				TargetAttributes = {
 					BB0EA04A2050C67B009123B4 = {
@@ -296,7 +301,7 @@
 					};
 					BBC1A2F62048541B002B36A0 = {
 						CreatedOnToolsVersion = 9.3;
-						LastSwiftMigration = 0910;
+						LastSwiftMigration = 1020;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
@@ -436,7 +441,8 @@
 				BBC1A30A20485423002B36A0 /* main.m in Sources */,
 				BB6A37E2204B644900A05CBA /* FindWindow.m in Sources */,
 				BBC1A2FC2048541B002B36A0 /* AppDelegate.m in Sources */,
-				BB77BC902058465A00F820C6 /* Swift.swift in Sources */,
+				BB76E9E32288841600E454F0 /* Tokenizer.swift in Sources */,
+				BB76E9E22288841600E454F0 /* Swift.swift in Sources */,
 				BB6A37E9204BB21F00A05CBA /* Preferences.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,7 +573,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
@@ -618,7 +624,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = macosx;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -628,7 +634,6 @@
 		BBC1A31A20485423002B36A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SearchLight/SearchLight.entitlements;
@@ -641,15 +646,15 @@
 				OTHER_LDFLAGS = /usr/lib/libcrypto.dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchLight/SearchLight-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
 		BBC1A31B20485423002B36A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = SearchLight/SearchLight.entitlements;
@@ -662,7 +667,8 @@
 				OTHER_LDFLAGS = /usr/lib/libcrypto.dylib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.johnholdsworth.SearchLight;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "SearchLight/SearchLight-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

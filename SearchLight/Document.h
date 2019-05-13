@@ -11,6 +11,9 @@
 @interface Document : NSDocument
 
 - (void)selectHome;
+- (IBAction)back:sender;
+- (IBAction)forward:sender;
+- (IBAction)search:sender;
 
 @end
 

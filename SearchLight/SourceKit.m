@@ -6,10 +6,10 @@
 //  Copyright © 2018 John Holdsworth. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "SourceKit.h"
 #import "sourcekitd.h"
-#import <dlfcn.h>
+//#import <dlfcn.h>
+#import "SearchLight-Swift.h"
 
 @implementation SourceKit {
     void *handle;
@@ -67,15 +67,7 @@
     if (!(self = [super init]))
         return nil;
 
-//    NSOpenPanel *open = [NSOpenPanel new];
-//    open.directoryURL = [NSURL URLWithString:@"/Applications/Xcode.app"];
-//    open.prompt = NSLocalizedString(@"Select Search Scope", @"Select Search Scope");
-//    open.allowsMultipleSelection = TRUE;
-//    open.canChooseDirectories = TRUE;
-//    open.canChooseFiles = FALSE;
-//    if ([open runModal] != NSFileHandlingPanelOKButton)
-//        return nil;
-
+#if 0
     static const char sourcektd[] = "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/sourcekitd.framework/sourcekitd";
 //    NSString *sourcektd = [[NSBundle mainBundle] pathForResource:@"sourcekitd" ofType:@"framework"];
     if (!(handle = dlopen(sourcektd, RTLD_NOW))) {
@@ -121,7 +113,7 @@
     offsetID = sourcekitd_uid_get_from_cstr("key.offset");
     lengthID = sourcekitd_uid_get_from_cstr("key.length");
     editorCloseID = sourcekitd_uid_get_from_cstr("source.request.editor.close");
-
+#endif
     return self;
 }
 
@@ -131,6 +123,9 @@
 }
 
 - (NSString *)formatFile:(NSString *)path {
+    NSString *code = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
+    return code ? [Highlight htmlFor:code] : code;
+#if 0
     if (!handle)
         return nil;
 
@@ -187,6 +182,7 @@
     sourcekitd_request_release(req);
 
     return output;
+#endif
 }
 
 - (size_t)spanFor:(const void *)bytes length:(size_t)length rule:(NSString *)rule onto:(NSMutableString *)output {

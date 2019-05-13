@@ -50,8 +50,8 @@ function appendMatch(div, html) {
     (div || results || document.body).appendChild(pre);
 }
 
-function appendEndMatches(div) {
-    appendMatch(div, " ... max matches reached");
+function appendEndMatches(div, selno) {
+    appendMatch(div, " ... other matches available. to view, <a href='match://"+selno+"'>click here</a>");
 }
 
 function appendTotal(count) {
@@ -61,10 +61,12 @@ function appendTotal(count) {
     appendResult(div);
 }
 
-function setSource(path, html) {
+function setSource(path, link, next, html) {
     var div = document.createElement("DIV");
     div.className = "heading fixed";
-    div.innerHTML = "<a href=\""+path+"\">" + path + "</a>";
+    div.innerHTML = "<a href=\""+link+"\">" + path + "</a>"
+    if (next)
+        div.innerHTML += ", <a href='match://"+next+"'>next</a>";
     appendResult(div)
     div = document.createElement("DIV");
     div.className = "heading";

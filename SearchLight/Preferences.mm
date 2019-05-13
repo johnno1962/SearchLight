@@ -95,6 +95,7 @@ static NSArray *colorParams = @[@"headingColor", @"matchColor", @"previewColor",
             else {
                 [self.defaults setInteger:seal forKey:@"seal"];
                 [self.defaults setInteger:expires - clock + time(NULL) forKey:@"expires"];
+#pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
                 if ([[NSAlert alertWithMessageText:@"SearchLight"
                                      defaultButton:@"Evaluate" alternateButton:@"Purchase Now" otherButton:nil
@@ -116,6 +117,7 @@ static NSArray *colorParams = @[@"headingColor", @"matchColor", @"previewColor",
              informativeTextWithFormat:@"%@", message] runModal] == NSAlertDefaultReturn)
         [[NSWorkspace sharedWorkspace] openURL:[NSURL URLWithString:@"macappstores://itunes.apple.com/us/app/lightning/id412736557?mt=12"]];
     [NSApp terminate:nil];
+#pragma clang diagnostic pop
 #endif
 }
 
@@ -143,9 +145,9 @@ static NSArray *colorParams = @[@"headingColor", @"matchColor", @"previewColor",
 
 - (IBAction)themeChanged:(NSPopUpButton *)sender {
     NSInteger themeNember = themeSelect.indexOfSelectedItem;
-    NSArray<NSColorWell *> *prefs = colorPrefs.subviews[0].subviews,
-        *custom = themes.subviews[0].subviews[0].subviews[0].subviews,
-        *theme = themes.subviews[0].subviews[themeNember].subviews[0].subviews;
+    NSArray<NSColorWell *> *prefs = colorPrefs.contentView.subviews,
+        *custom = [themes.contentView.subviews[0] contentView].subviews,
+        *theme = [themes.contentView.subviews[themeNember] contentView].subviews;
 
     if (lastTheme == 0)
         for (NSInteger i=0; i < theme.count; i++)

@@ -5,13 +5,16 @@
 //  Created by John Holdsworth on 01/03/2018.
 //  Copyright © 2018 John Holdsworth. All rights reserved.
 //
-//  $Id: //depot/SearchLight/SearchLight/Document.mm#178 $
+//  $Id: //depot/SearchLight/SearchLight/Document.mm#198 $
+//
+//  https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/Predicates/Articles/pSpotlightComparison.html#//apple_ref/doc/uid/TP40002370-SW1
 //
 
 #import "Document.h"
 #import "Preferences.h"
 #import "FindWindow.h"
 #import "SourceKit.h"
+#include <pwd.h>
 
 #if DEBUG
 #define SLLog NSLog
@@ -31,7 +34,8 @@ static NSDictionary *archiveCommands = @{@"z": @[@"gzcat", ARCHIVE],
 static NSDictionary *imageTypes = @{@"png": @1, @"jpg": @1, @"jpeg": @1, @"tif": @1, @"tiff": @1, @"gif": @1};
 static NSDictionary *sourceTypes = @{@"mm": @1, @"m": @1,  @"c": @1, @"h": @1, @"cpp": @1, @"hpp": @1, @"s": @1,
                                      @"swift": @1, @"metal": @1, @"java": @1, @"pl": @1, @"pm": @1, @"py": @1,
-                                     @"rb": @1, @"js": @1, @"css": @1, @"html": @1, @"htm": @1, @"xml": @1};
+                                     @"rb": @1, @"js": @1, @"css": @1, //@"html": @1, @"htm": @1,
+                                     @"xml": @1, @"cs": @1, @"t": @1, @"gyb": @1};
 static NSString *kMDItemDateReceived = @"com_apple_mail_dateReceived";
 
 @interface Match: NSObject {
@@ -43,13 +47,28 @@ static NSString *kMDItemDateReceived = @"com_apple_mail_dateReceived";
 @implementation Match
 @end
 
-@interface Document () <PreferencesChange, WebPolicyDelegate, WebUIDelegate> {
+@interface History: NSObject {
+@public
+    NSString *search, *files;
+    WebView *webView;
+}
+@end
+@implementation History
+@end
+
+@interface Document () <PreferencesChange, NSAnimationDelegate,
+                        WebPolicyDelegate, WebUIDelegate, NSWindowDelegate> {
     IBOutlet NSSearchField *search, *fileFilter;
     IBOutlet NSButton *caseInsensitive, *searchCancel, *folder, *emails, *wildcard, *backButton;
     IBOutlet WebView *webView, *nextResultView;
     IBOutlet NSPopUpButton *lines, *when;
+    NSAutoresizingMaskOptions webViewResize;
+    NSView *webViewParent;
+    NSRect webViewFrame;
+    NSString *home;
 
-    NSMutableArray<WebView *> *webViews;
+    NSMutableArray<History *> *history, *forwards;
+    History *nextHist;
     NSMetadataQuery *metadataSearch;
     NSDateFormatter *dateFormatter;
     NSRegularExpression *regex, *fileNots;
@@ -126,15 +145,18 @@ static NSMutableDictionary *typeIcons;
 
     script = webView.windowScriptObject;
     webView.drawsBackground = FALSE;
-    webViews = [NSMutableArray new];
+    history = [NSMutableArray new];
     matches = [NSMutableArray new];
 
     NSURL *html = [[NSBundle mainBundle] URLForResource:@"Splash" withExtension:@"html"];
     [webView.mainFrame loadRequest:[NSURLRequest requestWithURL:html]];
+    webViewResize = webView.autoresizingMask;
+    webViewParent = webView.superview;
+    [self setWebViewFrame];
 
     [self setupSearchHistory:search];
     [self setupSearchHistory:fileFilter];
-    [self setNextResultView];
+    [self setupNextResultView];
 
     if (fileData) {
         self.searchScopes = @[[NSURL URLWithString:fileData[@"searchScopes"]]];
@@ -159,12 +181,23 @@ static NSMutableDictionary *typeIcons;
     sizeFormatter.numberStyle = NSNumberFormatterDecimalStyle;
     pdftotext = [[NSFileManager defaultManager] fileExistsAtPath:@"/usr/local/bin/pdftotext"];
 
-    [NSApp setServicesProvider:self];
     [webView.window makeKeyAndOrderFront:self];
+    webView.window.delegate = self;
+
+    home = [NSString stringWithUTF8String:getpwuid(getuid())->pw_dir?:"~?"];
 
 //    static BOOL opened;
 //    if (!opened && [NSHomeDirectory() contains:@"/Containers/"])
 //        [self selectFolder:NSHomeDirectory()];
+}
+
+- (NSSize)windowWillResize:(NSWindow *)sender toSize:(NSSize)frameSize {
+    [self performSelector:@selector(setWebViewFrame) withObject:nil afterDelay:0.5];
+    return frameSize;
+}
+
+- (void)setWebViewFrame {
+    webViewFrame = webView.frame;
 }
 
 - (void)setSearchScopes:(NSArray *)searchScopes {
@@ -276,19 +309,6 @@ static NSURL *opened;
     return YES;
 }
 
-- (void)fastScan:(NSPasteboard *)pboard
-        userData:(NSString *)userData error:(NSString **)error {
-    if (![pboard canReadObjectForClasses:@[[NSString class]] options:@{}]) {
-        *error = NSLocalizedString(@"Error: couldn't looup text.",
-                                   @"pboard couldn't give string.");
-        return;
-    }
-
-    search.stringValue = [pboard stringForType:NSPasteboardTypeString];
-    [NSApp activateIgnoringOtherApps:YES];
-    [self search:nil];
-}
-
 - (void)searchDirectory:(NSPasteboard *)pboard
                userData:(NSString *)userData error:(NSString **)error {
     NSArray *classes = @[[NSURL class]];
@@ -310,6 +330,9 @@ static NSURL *opened;
 {
     if ([sender isKindOfClass:NSSearchField.class] && ![sender stringValue].length)
         return;
+
+    if ([sender isKindOfClass:[NSString class]])
+        search.stringValue = sender;
 
     NSString *lcFileFilter = fileFilter.stringValue.lowercaseString,
         *nameItem = (id)kMDItemDisplayName, *searchItem = (id)kMDItemTextContent;
@@ -398,8 +421,22 @@ static NSURL *opened;
         for (__strong NSString *andClause in [orClause componentsSeparatedByString:@" +"]) {
             NSMutableString *pre = [NSMutableString new], *post = [NSMutableString new];
             andClause = [self unescape:[self unbracket:andClause pre:pre post:post]];
-            [ands addObject:[NSString stringWithFormat:@"%@%@ = \"%@\"%@%@",
-                             pre, item, [self stringEscape:andClause], modifiers, post]];
+            if ([andClause hasPrefix:@"<"] || [andClause hasPrefix:@">"]) {
+                NSUInteger size = [andClause substringFromIndex:1].integerValue;
+                switch ([andClause characterAtIndex:andClause.length-1]) {
+                    case 'G': case 'g':
+                        size *= 1024;
+                    case 'M': case 'm':
+                        size *= 1024;
+                    case 'K': case 'k':
+                        size *= 1024;
+                }
+                [ands addObject:[NSString stringWithFormat:@"%@%@ %C %lu%@", pre,
+                                 kMDItemFSSize, [andClause characterAtIndex:0], size, post]];
+            }
+            else
+                [ands addObject:[NSString stringWithFormat:@"%@%@ = \"%@\"%@%@",
+                                 pre, item, [self stringEscape:andClause], modifiers, post]];
         }
 
         [ors addObject:[ands componentsJoinedByString:@" && "]];
@@ -495,7 +532,7 @@ static NSURL *opened;
         hasRules = YES;
     }
     [self addRule:@"img.image { max-width: %@; }"
-             from:@(webView.frame.size.width - 60.).stringValue extra:nil to:webView];
+             from:@(webViewFrame.size.width - 60.).stringValue extra:nil to:webView];
 }
 
 - (void)addRule:(NSString *)rule from:(NSString *)well extra:(NSString *)extra to:(WebView *)webView {
@@ -566,7 +603,7 @@ static NSURL *opened;
             NSString *name = [theResult valueForAttribute:(id)kMDItemDisplayName],
                 *path = [theResult valueForAttribute:(id)kMDItemPath] ?:
                         [[theResult valueForAttribute:(id)kMDItemURL] path] ?:
-                        name, *type = path.pathExtension.lowercaseString ?: @"";
+                        name;
 
             if ([path contains:@"TurboWeb"] || [path contains:@"CachedData"])
                 continue;
@@ -575,46 +612,7 @@ static NSURL *opened;
             if ([fileNots firstMatchInString:path options:0 range:path.range])
                 continue;
 
-            NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
-            NSDate *date = attributes.fileModificationDate ?:
-                [theResult valueForAttribute:(id)kMDItemFSContentChangeDate] ?:
-                [NSDate dateWithTimeIntervalSince1970:0.];
-            NSString *icon = attributes.fileType == NSFileTypeDirectory ?
-                [[NSWorkspace sharedWorkspace] iconForFile:path].iconURL : [self iconForType:type];
-
-            NSString *file = path.lastPathComponent, *dir = path.stringByDeletingLastPathComponent,
-                    *link = [dir stringByReplacingOccurrencesOfString:NSHomeDirectory() withString:@"~"],
-                    *size = [sizeFormatter stringFromNumber:attributes[NSFileSize]] ?: @"";
-            id div;
-            if (imageTypes[type]) {
-                div = [script callWebScriptMethod:@"appendImage" withArguments:@[icon, name,
-                                file, dir, link, [dateFormatter stringFromDate:date], size]];
-                if (lines.selectedTag)
-                    [self->script callWebScriptMethod:@"appendMatch" withArguments:@[div,
-                     [NSString stringWithFormat:@"<img class=image src=\"file://%@\">", path]]];
-            }
-            else {
-                if ([type isEqualToString:@"emlx"])
-                    div = [script callWebScriptMethod:@"appendEmail" withArguments:@[icon, name, file, dir, link,
-                        [dateFormatter stringFromDate:[theResult valueForAttribute:kMDItemDateReceived] ?: date],
-                        size, [theResult valueForAttribute:(id)kMDItemAuthors] ?: @"",
-                        [theResult valueForAttribute:(id)kMDItemAuthorEmailAddresses] ?: @""]];
-                else {
-                    NSArray *proj = @[];
-                    if (sourceTypes[type])
-                        if (NSString *project = [self projectForSourceFile:path])
-                            proj = @[project, [self iconForType:project.pathExtension], project.lastPathComponent];
-
-                    div = [script callWebScriptMethod:@"appendFile" withArguments:@[icon, name,
-                        file, dir ?: @"", link, [dateFormatter stringFromDate:date], size, proj,
-                        [theResult valueForAttribute:(id)kMDItemURL] ?: @0]];
-                }
-
-                if (!typesToSkip[type] &&
-                    attributes.fileType != NSFileTypeDirectory &&
-                    attributes.fileSize <= preferences.maxFile.integerValue)
-                    [self addMatches:path to:div];
-            }
+            [self divForPath:path name:name result:theResult];
         }
         @catch (NSException *e) {
             NSLog(@"Caught exception: %@", e);
@@ -642,8 +640,54 @@ static NSURL *opened;
     [metadataSearch enableUpdates];
 }
 
-- (void)addMatches:(NSString * _Nonnull)path to:(id _Nonnull)div {
-    NSInteger maxMatches = preferences.maxMatches.integerValue, surroundingLines = self->lines.selectedTag;
+- (void)divForPath:(NSString *)path name:(NSString *)name result:(NSMetadataItem *)theResult {
+    NSDictionary *attributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+    NSDate *date = attributes.fileModificationDate ?:
+        [theResult valueForAttribute:(id)kMDItemFSContentChangeDate] ?:
+        [NSDate dateWithTimeIntervalSince1970:0.];
+    NSString *type = path.pathExtension.lowercaseString ?: @"";
+    NSString *icon = attributes.fileType == NSFileTypeDirectory ?
+    [[NSWorkspace sharedWorkspace] iconForFile:path].iconURL : [self iconForType:type];
+
+    NSString *file = path.lastPathComponent, *dir = path.stringByDeletingLastPathComponent,
+        *link = [dir stringByReplacingOccurrencesOfString:home withString:@"~"],
+        *size = [sizeFormatter stringFromNumber:attributes[NSFileSize]] ?: @"";
+    id div = nil;
+    if (imageTypes[type]) {
+        div = [script callWebScriptMethod:@"appendImage" withArguments:@[icon, name,
+             file, dir, link, [dateFormatter stringFromDate:date], size]];
+        if (lines.selectedTag)
+            [self->script callWebScriptMethod:@"appendMatch" withArguments:@[div,
+                                                                             [NSString stringWithFormat:@"<img class=image src=\"file://%@\">", path]]];
+    }
+    else {
+        if ([type isEqualToString:@"emlx"])
+            div = [script callWebScriptMethod:@"appendEmail" withArguments:@[icon, name, file, dir, link,
+                 [dateFormatter stringFromDate:[theResult valueForAttribute:kMDItemDateReceived] ?: date],
+                 size, [theResult valueForAttribute:(id)kMDItemAuthors] ?: @"",
+                 [theResult valueForAttribute:(id)kMDItemAuthorEmailAddresses] ?: @""]];
+        else {
+            NSArray *proj = @[];
+            if (sourceTypes[type])
+                if (NSString *project = [self projectForSourceFile:path])
+                    proj = @[project, [self iconForType:project.pathExtension], project.lastPathComponent];
+
+            div = [script callWebScriptMethod:@"appendFile" withArguments:@[icon, name,
+                file, dir ?: @"", link, [dateFormatter stringFromDate:date], size, proj,
+                [theResult valueForAttribute:(id)kMDItemURL] ?: @0]];
+        }
+
+        if (!typesToSkip[type] &&
+            attributes.fileType != NSFileTypeDirectory &&
+            attributes.fileSize <= preferences.maxFile.integerValue)
+            [self addMatches:path to:div maxMatches:theResult ?
+             preferences.maxMatches.integerValue : ~0];
+    }
+}
+
+- (void)addMatches:(NSString * _Nonnull)path to:(id _Nonnull)div
+        maxMatches:(NSUInteger)maxMatches {
+    NSInteger surroundingLines = self->lines.selectedTag;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
         if (NSString *contents = [self loadAndNormalise:path]) {
             __block NSInteger matchCount = 0;
@@ -670,13 +714,17 @@ static NSURL *opened;
                      NSString *html = [line replace:linkPlaceholder with:link];
                      [self->matches addObject:match];
 
-                     [self->script callWebScriptMethod:@"appendMatch" withArguments:@[div, html]];
+                     if (div)
+                         [self->script callWebScriptMethod:@"appendMatch"
+                                             withArguments:@[div, html]];
                  });
 
                  if (++matchCount >= maxMatches) {
                      *stop = TRUE;
                      dispatch_async(dispatch_get_main_queue(), ^{
-                         [self->script callWebScriptMethod:@"appendEndMatches" withArguments:@[div]];
+                         NSInteger selno = self->matches.count;
+                         [self->matches addObject:match];
+                         [self->script callWebScriptMethod:@"appendEndMatches" withArguments:@[div, @(-selno)]];
                      });
                  }
              }];
@@ -708,15 +756,17 @@ static NSURL *opened;
             [task waitUntilExit];
             [[task.standardOutput fileHandleForReading] closeFile];
             if (data.length && task.terminationStatus == EXIT_SUCCESS)
-                return [self normalise:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] ?:
-                                    [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding]];
+                return [self normalise:[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]/* ?:
+                                    [[NSString alloc] initWithData:data encoding:NSISOLatin1StringEncoding]*/];
         }
         return nil;
     }
 
     NSError *error;
-    if (NSString *contents = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error]
-                  ?: [NSString stringWithContentsOfFile:path encoding:NSISOLatin1StringEncoding error:&error]) {
+    if (NSString *contents = [NSString stringWithContentsOfFile:path
+                                                       encoding:NSUTF8StringEncoding error:&error]
+                 /* ?: [NSString stringWithContentsOfFile:path
+                  encoding:NSISOLatin1StringEncoding error:&error]*/) {
         return [self normalise:contents];
     }
 
@@ -824,9 +874,14 @@ static NSURL *opened;
         [webView.window makeFirstResponder:webView];
 }
 
-- (void)showMatch:(NSUInteger)selno;
+- (void)showMatch:(NSInteger)selno;
 {
-    Match *match = matches[selno];
+    Match *match = matches[abs(selno)];
+    if (selno < 0) {
+        [self newWebView];
+        [self divForPath:match->path name:match->path.lastPathComponent result:nil];
+        return;
+    }
     if (NSString *contents = [self loadAndNormalise:match->path]) {
         NSString *html = sourceTypes[match->path.pathExtension] ?
                           [[SourceKit shared] formatFile:match->path] : nil;
@@ -866,7 +921,9 @@ static NSURL *opened;
         }
 
         [self newWebView];
-        [script callWebScriptMethod:@"setSource" withArguments:@[match->path, body]];
+        [script callWebScriptMethod:@"setSource" withArguments:@[
+                             [match->path stringByReplacingOccurrencesOfString:home  withString:@"~"],
+                             match->path, @(selno+1 < matches.count ? selno + 1 : 0), body]];
     }
 }
 
@@ -879,9 +936,9 @@ static NSURL *opened;
     return numberOfLines - 1;
 }
 
-- (void)setNextResultView {
-    nextResultView = [[WebView alloc] initWithFrame:webView.frame frameName:@"" groupName:@""];
-    nextResultView.autoresizingMask = webView.autoresizingMask;
+- (void)setupNextResultView {
+    nextResultView = [[WebView alloc] initWithFrame:webViewFrame frameName:@"" groupName:@""];
+    nextResultView.autoresizingMask = webViewResize;
     nextResultView.drawsBackground = FALSE;
     nextResultView.policyDelegate = self;
     nextResultView.UIDelegate = self;
@@ -889,31 +946,91 @@ static NSURL *opened;
     [nextResultView.mainFrame loadRequest:[NSURLRequest requestWithURL:html]];
 }
 
-- (void)exchangeWebView:(WebView *)newWebView {
-    NSView *parent = [webView superview];
-    newWebView.frame = webView.frame;
-    [webView removeFromSuperview];
+- (void)exchangeWebView:(WebView *)newWebView dir:(int)dir {
+    NSRect newViewFrame = webViewFrame;
+    newViewFrame.origin.x += newViewFrame.size.width * dir;
+    newWebView.frame = newViewFrame;
+
+    [webViewParent addSubview:newWebView];
+
+    // Create the attributes dictionary for the first view.
+    NSDictionary *firstViewDict = @{NSViewAnimationTargetKey: newWebView,
+                      NSViewAnimationStartFrameKey:
+                          [NSValue valueWithRect:newViewFrame],
+                      NSViewAnimationEndFrameKey:
+                          [NSValue valueWithRect:webViewFrame]};
+
+    // Create the attributes dictionary for the first view.
+    NSRect oldViewFrame = webViewFrame;
+    oldViewFrame.origin.x -= newViewFrame.size.width * dir;
+
+    NSDictionary *secondViewDict = @{NSViewAnimationTargetKey: webView,
+                       NSViewAnimationStartFrameKey:
+                           [NSValue valueWithRect:webViewFrame],
+                       NSViewAnimationEndFrameKey:
+                           [NSValue valueWithRect:oldViewFrame]};
+
+    // Create the view animation object.
+    NSViewAnimation *theAnim = [[NSViewAnimation alloc]
+                                initWithViewAnimations:@[firstViewDict,
+                                                         secondViewDict]];
+
+    // Set some additional attributes for the animation.
+    [theAnim setDuration:.3];
+    [theAnim setAnimationCurve:NSAnimationEaseIn];
+
+    // Run the animation.
+    theAnim.delegate = self;
+    [theAnim startAnimation];
 
     webView = newWebView;
-    [parent addSubview:webView];
     script = webView.windowScriptObject;
     [webView makeFindable];
     [self addRules];
 
-    backButton.enabled = webViews.count != 0;
+    backButton.enabled = history.count != 0;
+}
+
+- (void)animationDidEnd:(NSViewAnimation *)animation {
+    [animation.viewAnimations[1][NSViewAnimationTargetKey] removeFromSuperview];
+}
+
+- (History *)newHist {
+    History *hist = [History new];
+    hist->search = search.stringValue;
+    hist->files = fileFilter.stringValue;
+    return hist;
 }
 
 - (void)newWebView {
-    [webViews addObject:webView];
-    [self exchangeWebView:nextResultView];
-    [self setNextResultView];
+    History *hist = nextHist ?: [self newHist];
+    hist->webView = webView;
+    [history addObject:hist];
+    [self exchangeWebView:nextResultView dir:1];
+    [self setupNextResultView];
+    forwards = [NSMutableArray new];
+    nextHist = [self newHist];
+}
+
+- (void)navFrom:(NSMutableArray <History *> *)from
+             to:(NSMutableArray <History *> *)to {
+    if (History *next = from.lastObject) {
+        [from removeLastObject];
+        search.stringValue = next->search;
+        fileFilter.stringValue = next->files;
+        nextHist->webView = webView;
+        [to addObject:nextHist];
+        [self exchangeWebView:next->webView dir:from == history ? -1 : 1];
+        nextHist = [self newHist];
+    }
+}
+
+- (IBAction)forward:sender {
+    [self navFrom:forwards to:history];
 }
 
 - (IBAction)back:sender {
-    if (WebView *oldWebView = webViews.lastObject) {
-        [webViews removeLastObject];
-        [self exchangeWebView:oldWebView];
-    }
+    [self navFrom:history to:forwards];
 }
 
 - (NSString *)htmlEscape:(NSString *)text;

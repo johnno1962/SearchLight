@@ -28,6 +28,7 @@ static NSString *runMenuBar = @"Run MenuBar";
                              @".png ,.jpg ,.jpeg",
                              @"-Library"] forKey:@"fileSearch"];
     }
+    [NSApp setServicesProvider:self];
     NSUpdateDynamicServices();
 #if 0
     menuBarItem.title = [self menuBarApp] ? @"Quit MenuBar" : runMenuBar;
@@ -66,6 +67,20 @@ static NSString *runMenuBar = @"Run MenuBar";
         [[NSDocumentController sharedDocumentController] newDocument:self];
     [[[NSDocumentController sharedDocumentController] documents].firstObject selectHome];
     [NSApp activateIgnoringOtherApps:YES];
+}
+
+- (void)fastScan:(NSPasteboard *)pboard
+        userData:(NSString *)userData error:(NSString **)error {
+  if (![pboard canReadObjectForClasses:@[[NSString class]] options:@{}]) {
+    *error = NSLocalizedString(@"Error: couldn't looup text.",
+                               @"pboard couldn't provide string.");
+    return;
+  }
+
+  [self wakeUp:self];
+  Document *search = [NSDocumentController sharedDocumentController].documents.firstObject;
+  NSString *string = [pboard stringForType:NSPasteboardTypeString];
+  [search performSelector:@selector(search:) withObject:string afterDelay:0.5];
 }
 #endif
 

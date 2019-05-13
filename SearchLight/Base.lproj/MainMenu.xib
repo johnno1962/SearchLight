@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="13771" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.64" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="13771"/>
-        <capability name="box content view" minToolsVersion="7.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.64"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -646,7 +645,7 @@
                             <menuItem title="Show Sidebar" keyEquivalent="s" id="kIP-vf-haE">
                                 <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
                                 <connections>
-                                    <action selector="toggleSourceList:" target="-1" id="iwa-gc-5KM"/>
+                                    <action selector="toggleSidebar:" target="-1" id="iwa-gc-5KM"/>
                                 </connections>
                             </menuItem>
                             <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
@@ -702,11 +701,11 @@
                 </menuItem>
             </items>
         </menu>
-        <window title="SearchLight Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="klJ-Tn-NU7" customClass="Preferences">
+        <window title="SearchLight Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="klJ-Tn-NU7" customClass="Preferences">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" texturedBackground="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="114" y="808" width="258" height="350"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
             <view key="contentView" id="t9d-pI-Ojd">
                 <rect key="frame" x="0.0" y="0.0" width="258" height="350"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -715,11 +714,11 @@
                         <rect key="frame" x="8" y="7" width="243" height="355"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <view key="contentView" id="m2d-6R-wck">
-                            <rect key="frame" x="1" y="1" width="241" height="339"/>
+                            <rect key="frame" x="3" y="3" width="237" height="337"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BdU-FW-Iyk">
-                                    <rect key="frame" x="18" y="303" width="73" height="17"/>
+                                    <rect key="frame" x="18" y="301" width="73" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Initial Limit:" id="Ig6-h7-nbQ">
                                         <font key="font" metaFont="system"/>
@@ -728,12 +727,12 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qse-0x-BQ6">
-                                    <rect key="frame" x="127" y="301" width="96" height="22"/>
+                                    <rect key="frame" x="127" y="299" width="96" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="1,000" drawsBackground="YES" id="eSa-IX-nWh">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Q1f-M4-XOy"/>
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <accessibility description="Initial result limit" help="Maximum number of results to display initially" identifier="InitialLimit"/>
@@ -742,7 +741,7 @@
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7xq-x4-gac">
-                                    <rect key="frame" x="18" y="273" width="89" height="17"/>
+                                    <rect key="frame" x="18" y="271" width="89" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max Matches:" id="DlR-KW-9z6">
                                         <font key="font" metaFont="system"/>
@@ -751,12 +750,12 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJo-kH-GgO">
-                                    <rect key="frame" x="127" y="271" width="96" height="22"/>
+                                    <rect key="frame" x="127" y="269" width="96" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="50" drawsBackground="YES" id="ark-5x-h77">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="AAn-Hs-XPe"/>
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <accessibility description="Max matches" help="Maximum number of file matches to diplay per result" identifier="MaxMatches"/>
@@ -765,7 +764,7 @@
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6R-L0-LBb">
-                                    <rect key="frame" x="18" y="243" width="91" height="17"/>
+                                    <rect key="frame" x="18" y="241" width="91" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max Line Size:" id="rWB-Hh-C7e">
                                         <font key="font" metaFont="system"/>
@@ -774,12 +773,12 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Up-8d-rQe">
-                                    <rect key="frame" x="127" y="241" width="96" height="22"/>
+                                    <rect key="frame" x="127" y="239" width="96" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="1,000" drawsBackground="YES" id="PV6-ka-f2t">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="mCf-7T-CCh"/>
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <accessibility description="Max line size" help="Maximum length of line to display in match" identifier="MaxLine"/>
@@ -788,7 +787,7 @@
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gMn-Jl-Yhz">
-                                    <rect key="frame" x="18" y="183" width="103" height="17"/>
+                                    <rect key="frame" x="18" y="181" width="103" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max Image Size:" id="CYI-4v-4jW">
                                         <font key="font" metaFont="system"/>
@@ -797,12 +796,12 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r58-Qd-FVN">
-                                    <rect key="frame" x="127" y="181" width="96" height="22"/>
+                                    <rect key="frame" x="127" y="179" width="96" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="10,000,000" drawsBackground="YES" id="3FW-FI-Wot">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="iRO-ED-5Xz"/>
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <accessibility description="Max image" help="Maximum size of image to display" identifier="MaxImage"/>
@@ -811,7 +810,7 @@
                                     </connections>
                                 </textField>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nni-Q6-vJY">
-                                    <rect key="frame" x="18" y="213" width="87" height="17"/>
+                                    <rect key="frame" x="18" y="211" width="87" height="17"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Max File Size:" id="16X-4M-dxt">
                                         <font key="font" metaFont="system"/>
@@ -820,12 +819,12 @@
                                     </textFieldCell>
                                 </textField>
                                 <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kEw-17-X22">
-                                    <rect key="frame" x="127" y="211" width="96" height="22"/>
+                                    <rect key="frame" x="127" y="209" width="96" height="22"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" title="100,000,000" drawsBackground="YES" id="t1E-Ot-35O">
                                         <numberFormatter key="formatter" formatterBehavior="default10_4" numberStyle="decimal" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="1fs-41-a9i"/>
                                         <font key="font" metaFont="system"/>
-                                        <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
                                     <accessibility description="Max file size" help="Maximum size of file to search for matches" identifier="MaxFile"/>
@@ -834,14 +833,14 @@
                                     </connections>
                                 </textField>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="    Color Preferences" translatesAutoresizingMaskIntoConstraints="NO" id="Q1M-aW-f51">
-                                    <rect key="frame" x="-3" y="-3" width="247" height="173"/>
+                                    <rect key="frame" x="-3" y="-5" width="247" height="173"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="ua7-dC-iTT">
-                                        <rect key="frame" x="1" y="1" width="245" height="157"/>
+                                        <rect key="frame" x="3" y="3" width="241" height="155"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LlK-hv-VeF">
-                                                <rect key="frame" x="77" y="122" width="44" height="23"/>
+                                                <rect key="frame" x="77" y="120" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.92540907859802246" green="0.92554211616516113" blue="0.92538005113601685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -849,7 +848,7 @@
                                                 </connections>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iJK-de-TYc">
-                                                <rect key="frame" x="181" y="122" width="44" height="23"/>
+                                                <rect key="frame" x="181" y="120" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -857,7 +856,7 @@
                                                 </connections>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Kl-Lt-GHY">
-                                                <rect key="frame" x="77" y="88" width="44" height="23"/>
+                                                <rect key="frame" x="77" y="86" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99019607843137258" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -865,7 +864,7 @@
                                                 </connections>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nPR-pf-ftc">
-                                                <rect key="frame" x="181" y="88" width="44" height="23"/>
+                                                <rect key="frame" x="181" y="86" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649820327759" green="0.12942153215408325" blue="0.12939104437828064" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -873,7 +872,7 @@
                                                 </connections>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sBj-z5-Rwb">
-                                                <rect key="frame" x="77" y="54" width="44" height="23"/>
+                                                <rect key="frame" x="77" y="52" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -881,7 +880,7 @@
                                                 </connections>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S4Z-PB-u2I">
-                                                <rect key="frame" x="181" y="54" width="44" height="23"/>
+                                                <rect key="frame" x="181" y="52" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <connections>
@@ -889,7 +888,7 @@
                                                 </connections>
                                             </colorWell>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xQu-e1-B4t">
-                                                <rect key="frame" x="18" y="125" width="55" height="17"/>
+                                                <rect key="frame" x="18" y="123" width="55" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Heading" id="gOX-EF-SKW">
                                                     <font key="font" metaFont="system"/>
@@ -898,7 +897,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vdn-hk-hdd">
-                                                <rect key="frame" x="133" y="91" width="30" height="17"/>
+                                                <rect key="frame" x="133" y="89" width="30" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Text" id="Xm5-Rf-2sh">
                                                     <font key="font" metaFont="system"/>
@@ -907,7 +906,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DLT-hV-w4P">
-                                                <rect key="frame" x="133" y="125" width="30" height="17"/>
+                                                <rect key="frame" x="133" y="123" width="30" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Text" id="GMp-zj-7wG">
                                                     <font key="font" metaFont="system"/>
@@ -916,7 +915,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jwk-wt-8lF">
-                                                <rect key="frame" x="18" y="91" width="42" height="17"/>
+                                                <rect key="frame" x="18" y="89" width="42" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Match" id="4XK-K9-3DQ">
                                                     <font key="font" metaFont="system"/>
@@ -925,7 +924,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xdY-Dx-oXg">
-                                                <rect key="frame" x="133" y="57" width="30" height="17"/>
+                                                <rect key="frame" x="133" y="55" width="30" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Text" id="wIl-Q1-sZq">
                                                     <font key="font" metaFont="system"/>
@@ -934,7 +933,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lpl-W0-4bh">
-                                                <rect key="frame" x="18" y="57" width="52" height="17"/>
+                                                <rect key="frame" x="18" y="55" width="52" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Preview" id="BfJ-F0-zGM">
                                                     <font key="font" metaFont="system"/>
@@ -943,7 +942,7 @@
                                                 </textFieldCell>
                                             </textField>
                                             <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="E2n-Gl-Hy9">
-                                                <rect key="frame" x="127" y="16" width="101" height="26"/>
+                                                <rect key="frame" x="127" y="14" width="101" height="26"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <popUpButtonCell key="cell" type="push" title="Custom" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="evS-Ge-k4H" id="wBm-8J-LMq">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
@@ -960,7 +959,7 @@
                                                 </connections>
                                             </popUpButton>
                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4SP-xm-EXC">
-                                                <rect key="frame" x="20" y="22" width="92" height="17"/>
+                                                <rect key="frame" x="20" y="20" width="92" height="17"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Select Theme:" id="KA3-Q7-I40">
                                                     <font key="font" metaFont="system"/>
@@ -995,11 +994,11 @@
             <point key="canvasLocation" x="-37" y="-76"/>
         </window>
         <userDefaultsController representsSharedInstance="YES" id="g"/>
-        <window title="Themes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9cG-Zb-Ddg" customClass="NSPanel">
+        <window title="Themes" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="9cG-Zb-Ddg" customClass="NSPanel">
             <windowStyleMask key="styleMask" titled="YES" miniaturizable="YES" resizable="YES" utility="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
             <rect key="contentRect" x="196" y="132" width="640" height="557"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="1001"/>
             <view key="contentView" id="X6z-Ke-kUG">
                 <rect key="frame" x="0.0" y="0.0" width="640" height="557"/>
                 <autoresizingMask key="autoresizingMask"/>
@@ -1008,43 +1007,43 @@
                         <rect key="frame" x="17" y="16" width="606" height="521"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" heightSizable="YES"/>
                         <view key="contentView" id="HXz-MS-lys">
-                            <rect key="frame" x="1" y="1" width="604" height="505"/>
+                            <rect key="frame" x="3" y="3" width="600" height="503"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Custon" translatesAutoresizingMaskIntoConstraints="NO" id="juv-Gl-udp">
-                                    <rect key="frame" x="25" y="337" width="188" height="148"/>
+                                    <rect key="frame" x="25" y="335" width="188" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="dOE-cp-ncT">
-                                        <rect key="frame" x="1" y="1" width="186" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="182" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YdF-GP-hao">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BUD-aq-hpu">
-                                                <rect key="frame" x="122" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eOa-Hx-Gzg">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ji0-BR-IPt">
-                                                <rect key="frame" x="122" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4y8-yA-94D">
-                                                <rect key="frame" x="20" y="19" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="17" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h27-PL-5OP">
-                                                <rect key="frame" x="122" y="19" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="17" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
@@ -1052,39 +1051,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Default" translatesAutoresizingMaskIntoConstraints="NO" id="3aw-Ex-sIZ">
-                                    <rect key="frame" x="25" y="173" width="188" height="148"/>
+                                    <rect key="frame" x="25" y="171" width="188" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="ydi-oC-gWz">
-                                        <rect key="frame" x="1" y="1" width="186" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="182" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3IM-Ly-1Wp">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.89803921568627454" green="0.89803921568627454" blue="0.89803921568627454" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gPV-2Y-Nrx">
-                                                <rect key="frame" x="122" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YaQ-N6-Dle">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mvn-f0-xwb">
-                                                <rect key="frame" x="122" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p48-49-ghq">
-                                                <rect key="frame" x="20" y="19" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="17" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fjz-Ej-JVp">
-                                                <rect key="frame" x="122" y="19" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="17" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.12939649819999999" green="0.12942153219999999" blue="0.12939104439999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
@@ -1092,39 +1091,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Grey" translatesAutoresizingMaskIntoConstraints="NO" id="ZBG-kZ-QgW">
-                                    <rect key="frame" x="25" y="16" width="158" height="148"/>
+                                    <rect key="frame" x="25" y="14" width="158" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="TJ4-XN-FsO">
-                                        <rect key="frame" x="1" y="1" width="156" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="152" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sf1-5l-2nB">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.52139705419540405" green="0.49416989088058472" blue="0.48230880498886108" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vkO-gS-hkR">
-                                                <rect key="frame" x="87" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="87" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qw3-0H-Uuz">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.897960364818573" green="0.8980897068977356" blue="0.89793211221694946" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="caL-NI-xy9">
-                                                <rect key="frame" x="87" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="87" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="47b-0j-e0g">
-                                                <rect key="frame" x="20" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iAt-j0-mwm">
-                                                <rect key="frame" x="87" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="87" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
@@ -1132,39 +1131,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Blue" translatesAutoresizingMaskIntoConstraints="NO" id="Jaw-m6-O4e">
-                                    <rect key="frame" x="226" y="337" width="188" height="148"/>
+                                    <rect key="frame" x="226" y="335" width="188" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="sxX-gA-XDy">
-                                        <rect key="frame" x="1" y="1" width="186" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="182" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QF5-cv-9vQ">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.032571978867053986" green="0.39193055033683777" blue="0.51353847980499268" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8y-hY-qSg">
-                                                <rect key="frame" x="122" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2PT-4x-utc">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.81608808040618896" green="0.90978270769119263" blue="0.94493883848190308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LEZ-z9-j7s">
-                                                <rect key="frame" x="122" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742326714098" green="0.023510115221142769" blue="0.035269364714622498" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lJA-DE-uIg">
-                                                <rect key="frame" x="20" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AY7-YR-3b0">
-                                                <rect key="frame" x="122" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
@@ -1172,39 +1171,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Purple" translatesAutoresizingMaskIntoConstraints="NO" id="APO-g0-JwM">
-                                    <rect key="frame" x="429" y="337" width="188" height="148"/>
+                                    <rect key="frame" x="429" y="335" width="188" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="P5K-vB-3Kb">
-                                        <rect key="frame" x="1" y="1" width="186" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="182" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TKs-KX-VJd">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.22367784380912781" green="0.1919809877872467" blue="0.29791852831840515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1ME-Cb-xay">
-                                                <rect key="frame" x="122" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piR-wg-218">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.85864037275314331" green="0.79606419801712036" blue="0.84691792726516724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1iZ-5z-Va2">
-                                                <rect key="frame" x="122" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xNv-om-XMg">
-                                                <rect key="frame" x="20" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ocV-I7-vWM">
-                                                <rect key="frame" x="122" y="20" width="44" height="23"/>
+                                                <rect key="frame" x="122" y="18" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
@@ -1212,39 +1211,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Green" translatesAutoresizingMaskIntoConstraints="NO" id="NLo-MC-BQm">
-                                    <rect key="frame" x="226" y="173" width="157" height="148"/>
+                                    <rect key="frame" x="226" y="171" width="157" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="1X1-OV-lUQ">
-                                        <rect key="frame" x="1" y="1" width="155" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="151" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXN-rR-Qcg">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.43946194648742676" green="0.52946609258651733" blue="0.49799638986587524" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFF-ip-2Cp">
-                                                <rect key="frame" x="89" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="89" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jf9-rB-x0t">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.92559629678726196" green="0.98437720537185669" blue="0.96851950883865356" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s7E-d1-2nZ">
-                                                <rect key="frame" x="89" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="89" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lxV-Zv-zUi">
-                                                <rect key="frame" x="20" y="23" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="21" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xoo-bk-ie6">
-                                                <rect key="frame" x="89" y="23" width="44" height="23"/>
+                                                <rect key="frame" x="89" y="21" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
@@ -1252,39 +1251,39 @@
                                     </view>
                                 </box>
                                 <box autoresizesSubviews="NO" fixedFrame="YES" borderType="line" title="Red" translatesAutoresizingMaskIntoConstraints="NO" id="AUB-qR-I8L">
-                                    <rect key="frame" x="429" y="173" width="158" height="148"/>
+                                    <rect key="frame" x="429" y="171" width="158" height="148"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <view key="contentView" id="EaO-Ek-zw4">
-                                        <rect key="frame" x="1" y="1" width="156" height="132"/>
+                                        <rect key="frame" x="3" y="3" width="152" height="130"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yWW-qE-cZC">
-                                                <rect key="frame" x="20" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.81048542261123657" green="0.28660446405410767" blue="0.26684492826461792" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ckP-sl-3jj">
-                                                <rect key="frame" x="90" y="89" width="44" height="23"/>
+                                                <rect key="frame" x="90" y="87" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xql-8p-X4J">
-                                                <rect key="frame" x="20" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.99942749738693237" green="0.90213638544082642" blue="0.82744807004928589" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ePu-OB-9gQ">
-                                                <rect key="frame" x="90" y="55" width="44" height="23"/>
+                                                <rect key="frame" x="90" y="53" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GRy-zW-8qp">
-                                                <rect key="frame" x="20" y="17" width="44" height="23"/>
+                                                <rect key="frame" x="20" y="15" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             </colorWell>
                                             <colorWell fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gLc-2A-AiN">
-                                                <rect key="frame" x="90" y="17" width="44" height="23"/>
+                                                <rect key="frame" x="90" y="15" width="44" height="23"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="color" red="0.00011490742329999999" green="0.023510115219999999" blue="0.035269364710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </colorWell>
